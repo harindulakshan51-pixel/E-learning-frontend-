@@ -88,16 +88,16 @@ export default function CoursePage() {
                             viewport={{ once: true, amount: 0.3 }}
                             className="max-w-2xl"
                         >
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="h-1.5 w-12 bg-[#004ac6] rounded-full"></div>
-                                <span className="text-[#004ac6] font-bold uppercase tracking-[0.2em] text-[11px]">
+                            <div className="flex items-center gap-3 mb-5">
+                                <div className="h-1 w-10 bg-[#244ad2] rounded-full"></div>
+                                <span className="text-[#244ad2] font-black uppercase tracking-[0.2em] text-[10px]">
                                     THE CURRICULUM
                                 </span>
                             </div>
-                            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+                            <h2 className="text-4xl md:text-[2.75rem] font-black text-[#0a1128] mb-5 tracking-tight leading-[1.15]">
                                 Curated Mastery Programs
                             </h2>
-                            <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
+                            <p className="text-[#64748b] text-lg md:text-lg leading-relaxed font-medium">
                                 Precision-engineered paths designed to bridge the gap between amateur and 
                                 industry authority. Each program is a focused journey toward absolute 
                                 technical mastery.
@@ -113,18 +113,18 @@ export default function CoursePage() {
                         >
                             <Link 
                                 to="/categories" 
-                                className="group inline-flex items-center gap-4 bg-white px-8 py-4 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-600/30 transition-all hover:shadow-md active:scale-95"
+                                className="group inline-flex items-center gap-3 bg-white px-7 py-3.5 rounded-full shadow-sm border border-[#e2e8f0] hover:border-[#244ad2]/30 transition-all duration-300 hover:shadow-md active:scale-95"
                             >
-                                <span className="font-semibold text-[#004ac6] text-lg">
+                                <span className="font-bold text-[#244ad2] text-[15px]">
                                     Explore Full Catalog
                                 </span>
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
-                                    className="w-6 h-6 text-[#004ac6] transition-transform group-hover:translate-x-1" 
+                                    className="w-5 h-5 text-[#244ad2] transition-transform group-hover:translate-x-1" 
                                     fill="none" 
                                     viewBox="0 0 24 24" 
                                     stroke="currentColor" 
-                                    strokeWidth={2}
+                                    strokeWidth={2.5}
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>

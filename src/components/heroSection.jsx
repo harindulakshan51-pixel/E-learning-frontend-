@@ -54,9 +54,9 @@ export default function HeroSection() {
           {/* Avatars */}
           <div className="flex items-center gap-4">
             <div className="flex -space-x-3">
-              <img className="w-10 h-10 rounded-full border-2 border-white object-cover" src={HERO_IMAGE} alt="Student" />
-              <img className="w-10 h-10 rounded-full border-2 border-white object-cover" src={HERO_IMAGE} alt="Student" />
-              <img className="w-10 h-10 rounded-full border-2 border-white object-cover" src={HERO_IMAGE} alt="Student" />
+              <img className="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://wlbbtprbqprjphegkdtq.supabase.co/storage/v1/object/public/Images/1777213154040-Blockchain%20Development%20with%20Solidity.jpg" alt="Student" />
+              <img className="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://wlbbtprbqprjphegkdtq.supabase.co/storage/v1/object/public/Images/1777212737123-Python%20for%20Data%20Science.jpg" alt="Student" />
+              <img className="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://wlbbtprbqprjphegkdtq.supabase.co/storage/v1/object/public/Images/1777212938072-Machine%20Learning%20with%20TensorFlow.jpg" alt="Student" />
             </div>
             <span className="text-sm font-semibold text-gray-600">
               Join 5000+ Successful Students
@@ -69,7 +69,7 @@ export default function HeroSection() {
       <div className="hidden lg:flex absolute right-12 xl:right-24 top-[45%] -translate-y-1/2 z-20 bg-white rounded-2xl p-6 shadow-2xl flex-col items-center w-[160px]">
         <div className="text-[#0a1961] text-4xl font-black mb-1">100+</div>
         <div className="text-[10px] font-bold text-gray-500 text-center uppercase tracking-widest mb-3 leading-tight">
-          Premium<br />Courses
+          Premium<br />Lessons
         </div>
         <div className="w-8 h-8 text-yellow-500">
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">

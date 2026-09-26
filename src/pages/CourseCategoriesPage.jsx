@@ -68,7 +68,7 @@ function CategoryResults({ query }) {
     };
 
     return (
-        <div className="w-full min-h-[calc(100vh-100px)] flex flex-col bg-gray-50 pt-10 pb-20">
+        <div className="w-full min-h-[calc(100vh-100px)] flex flex-col bg-[#f9fbfd] pt-10 pb-20">
             <CategoriesHeroSection query={query} />
 
             <div className="w-full flex justify-center p-4">
@@ -79,18 +79,18 @@ function CategoryResults({ query }) {
                         variants={headerVariant}
                         initial="hidden"
                         animate="visible"
-                        className="mb-12 border-b border-slate-200 pb-10"
+                        className="mb-12 border-b border-[#e2e8f0] pb-10"
                     >
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-5 tracking-tight">
+                        <h2 className="text-4xl md:text-[2.75rem] font-black text-[#0a1128] mb-5 tracking-tight leading-[1.15]">
                             {query ? (
                                 <span>
-                                    Search Results for <span className="text-blue-600">"{query}"</span>
+                                    Search Results for <span className="text-[#244ad2]">"{query}"</span>
                                 </span>
                             ) : (
                                 "Master In-Demand Industrial Skills"
                             )}
                         </h2>
-                        <p className="text-slate-500 text-[14px] md:text-[18px] max-w-3xl leading-relaxed font-[Inter]">
+                        <p className="text-[#64748b] text-[14px] md:text-[18px] max-w-3xl leading-relaxed font-medium">
                             {query 
                                 ? `Discover ${course.length} specialized programs matching your search criteria.` 
                                 : "Explore our comprehensive curriculum designed to bridge the gap between learning and industry mastery. Choose your path and start your journey today."}
@@ -104,7 +104,7 @@ function CategoryResults({ query }) {
                             animate={{ opacity: 1 }} 
                             className="w-full flex justify-center items-center h-[300px]"
                         >
-                            <p className="text-gray-500 text-xl font-[Inter]">No courses found.</p>
+                            <p className="text-[#64748b] text-xl font-medium">No courses found.</p>
                         </Motion.div>
                     ) : (
                         <>
@@ -134,20 +134,20 @@ function CategoryResults({ query }) {
                                 >
                                     <button 
                                         onClick={loadMore}
-                                        className="group inline-flex items-center gap-4 bg-white px-10 py-4 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-600/30 transition-all hover:shadow-md active:scale-95 cursor-pointer"
+                                        className="group inline-flex items-center gap-3 bg-white px-7 py-3.5 rounded-full shadow-sm border border-[#e2e8f0] hover:border-[#244ad2]/30 transition-all duration-300 hover:shadow-md active:scale-95 cursor-pointer"
                                     >
-                                        <span className="font-semibold text-[#004ac6] text-lg">
+                                        <span className="font-bold text-[#244ad2] text-[15px]">
                                             Load More Courses
                                         </span>
                                         <svg 
                                             xmlns="http://www.w3.org/2000/svg" 
-                                            className="w-6 h-6 text-[#004ac6] transition-transform group-hover:translate-x-1" 
+                                            className="w-5 h-5 text-[#244ad2] transition-transform group-hover:translate-y-1" 
                                             fill="none" 
                                             viewBox="0 0 24 24" 
                                             stroke="currentColor" 
-                                            strokeWidth={2}
+                                            strokeWidth={2.5}
                                         >
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                                         </svg>
                                     </button>
                                 </Motion.div>
