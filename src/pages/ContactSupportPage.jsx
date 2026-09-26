@@ -44,7 +44,7 @@ export default function ContactSupportPage() {
   return (
     <div className="w-full min-h-screen flex flex-col bg-[#f9f9f9]">
       {/* Hero */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 w-full">
+      <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 pt-8 w-full">
         <div className="relative overflow-hidden bg-gradient-to-br from-[#1e3a8a] via-[#2563eb] to-[#3b82f6] rounded-[32px] px-8 py-16 md:px-16 md:py-20 shadow-lg text-center md:text-left">
           <div className="absolute -top-24 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
           
@@ -59,7 +59,7 @@ export default function ContactSupportPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 w-full">
+      <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 py-12 w-full">
         {/* Contact channels */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {channels.map((c, i) => (

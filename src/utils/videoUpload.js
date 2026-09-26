@@ -1,3 +1,3 @@
 export default function uploadFile() {
-  return Promise.reject(new Error('Direct video uploads are disabled. Use a verified DRM playback ID.'));
+  return Promise.reject(new Error('Direct video uploads are disabled. Use a YouTube URL or video ID in Admin lessons.'));
 }

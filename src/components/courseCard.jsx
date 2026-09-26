@@ -1,3 +1,4 @@
+import { DEFAULT_COURSE_IMAGE } from '../utils/images';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion as Motion } from 'framer-motion'; // <-- Added Framer Motion
 
@@ -23,7 +24,7 @@ export default function CourseCard({ course }) {
         {/* Course Image Section */}
         <div className="relative h-64 w-full rounded-2xl overflow-hidden mb-6 bg-gray-100 shrink-0">
           <img 
-            src={course.thumbnail || 'https://via.placeholder.com/400x300?text=No+Image'} 
+            src={course.thumbnail || DEFAULT_COURSE_IMAGE}
             alt={course.title}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           />

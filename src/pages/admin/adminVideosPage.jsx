@@ -4,12 +4,6 @@ import YouTubePlayer from '../../components/YouTubePlayer';
 
 const blank = { videoId: '', title: '', duration: '', order: 1, youtubeVideoId: '' };
 
-function extractYouTubeId(url) {
-  if (!url) return '';
-  const match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i);
-  return match ? match[1] : (url.length === 11 ? url : '');
-}
-
 export default function AdminVideosPage() {
   const [courses, setCourses] = useState(null);
   const [course, setCourse] = useState(null);
@@ -34,8 +28,6 @@ export default function AdminVideosPage() {
     setMessage('');
     try {
       const { videoId, ...fields } = form;
-      // Extract ID in case they pasted full URL and didn't trigger change properly
-      fields.youtubeVideoId = extractYouTubeId(fields.youtubeVideoId) || fields.youtubeVideoId;
       
       if (editing) await api.put('/course-videos/' + encodeURIComponent(videoId), fields);
       else await api.post('/course-videos', { ...form, youtubeVideoId: fields.youtubeVideoId, courseId: course.courseId });
@@ -55,7 +47,7 @@ export default function AdminVideosPage() {
   return <main className="flex flex-col xl:flex-row min-h-screen">
     <aside className="xl:w-72 bg-white border-r shrink-0 p-5"><h1 className="font-bold mb-2">Courses</h1><p className="text-xs text-slate-400 mb-5">Select a course to manage lessons</p>{!courses ? <p>Loading courses…</p> : courses.length === 0 ? <p>No courses yet.</p> : courses.map(c => <button key={c.courseId} onClick={() => select(c)} className={'w-full text-left p-3 rounded-xl mb-2 flex gap-3 ' + (course?.courseId === c.courseId ? 'bg-blue-50 text-blue-700' : 'hover:bg-slate-50')}><img src={c.thumbnail} alt="" className="w-10 h-10 object-cover rounded-lg" /><span className="min-w-0"><span className="block truncate text-sm font-semibold">{c.title}</span><small className="text-slate-400">{c.courseId}</small></span></button>)}</aside>
     <section className="p-5 md:p-10 flex-1 min-w-0"><div className="flex flex-wrap justify-between gap-4 mb-6"><div><h2 className="text-2xl font-extrabold">{course?.title || 'Course lessons'}</h2><p className="text-slate-400 text-sm mt-2">{course?.courseId || 'Choose a course to begin'}</p></div>{course && <button className="bg-blue-600 text-white rounded-xl px-5 py-3 font-bold" onClick={() => { setForm({ ...blank }); setEditing(false); setPreview(null); }}>+ Add Lesson</button>}</div>
-      <p className="bg-blue-50 text-blue-900 rounded-xl p-4 text-sm mb-6">Enter an unlisted YouTube video URL or ID. <strong>Limitations:</strong> YouTube videos cannot be truly protected from downloading, copying, sharing, screen-recording, or access through developer tools. An unlisted YouTube link can still be shared. The player removes separate download links, disables right-clicks, and displays a student watermark as reasonable download deterrents.</p>
+      <p className="bg-blue-50 text-blue-900 rounded-xl p-4 text-sm mb-6">Enter an unlisted YouTube video URL or ID. <strong>Limitations:</strong> YouTube videos cannot be truly protected from downloading, copying, sharing, screen-recording, or access through developer tools. An unlisted YouTube link can still be shared. Custom controls do not provide DRM. YouTube manages quality and may display branding, links, or ads.</p>
       {message && <p role="status" className="mb-5 p-4 bg-white border border-slate-200 rounded-xl">{message}</p>}
       {form && <form onSubmit={save} className="bg-white border border-slate-200 rounded-2xl p-6 mb-8 grid md:grid-cols-2 gap-5">
         {[
@@ -69,7 +61,6 @@ export default function AdminVideosPage() {
             {label}
             <input required disabled={editing && key === 'videoId'} type={key === 'order' ? 'number' : 'text'} min={key === 'order' ? 1 : undefined} value={form[key]} onChange={e => {
               let val = key === 'order' ? Number(e.target.value) : e.target.value;
-              if (key === 'youtubeVideoId') val = extractYouTubeId(val) || val;
               setForm({ ...form, [key]: val });
             }} className="block w-full p-3 border border-slate-200 rounded-xl mt-2 disabled:bg-slate-100" />
           </label>

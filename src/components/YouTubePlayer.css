@@ -1,0 +1,15 @@
+.scholarly-player { --plyr-color-main: #2563eb; --plyr-video-control-background-hover: #2563eb; }
+/* Block clicks on the YouTube frame so native controls can't be used */
+.scholarly-player .plyr__video-embed iframe { pointer-events: none !important; }
+.scholarly-player .plyr__poster { display: none; }
+.scholarly-player .plyr--video .plyr__controls { position: relative; background: #111827; padding: 12px; flex-wrap: wrap; opacity: 1; transform: none; }
+.scholarly-player .plyr__video-wrapper { min-height: 200px; }
+.scholarly-player .plyr__control:focus-visible { outline: 2px solid #93c5fd; outline-offset: 2px; }
+@media (max-width: 600px) {
+  .scholarly-player .plyr__controls .plyr__progress__container { min-width: 100%; order: -1; }
+  .scholarly-player .plyr__volume { max-width: 90px; min-width: 65px; }
+  .scholarly-player .plyr__time { display: block; }
+}
+
+.scholarly-player .plyr__controls { order: 2; flex-shrink: 0; }
+.scholarly-player .plyr__time + .plyr__time { display: block; }

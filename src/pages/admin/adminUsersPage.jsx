@@ -1,3 +1,4 @@
+import { DEFAULT_PROFILE_IMAGE } from '../../utils/images';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "../../components/loader";
@@ -86,11 +87,11 @@ export default function AdminUsersPage() {
                       <td className="px-6 py-4">
                         <div className="relative w-11 h-11">
                           <img
-                            src={item.image || `${import.meta.env.VITE_BACKEND_URL}/defaultProfileIcon.png`}
+                            src={item.image || DEFAULT_PROFILE_IMAGE}
                             alt="Profile"
                             className="w-full h-full object-cover rounded-full ring-2 ring-slate-100 shadow-sm group-hover:ring-blue-100 transition-all"
                             onError={(e) => {
-                              e.target.src = "https://rlawualidanksomoidky.supabase.co/storage/v1/object/public/Images/defaultprofileBG%20.jpg";
+                              if (e.target.src !== DEFAULT_PROFILE_IMAGE) e.target.src = DEFAULT_PROFILE_IMAGE;
                             }}
                           />
                         </div>

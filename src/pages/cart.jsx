@@ -1,3 +1,4 @@
+import { DEFAULT_COURSE_IMAGE } from '../utils/images';
 import { useState } from "react";
 import { getCart, addToCart } from "../utils/cart";
 import { BsTrash } from "react-icons/bs"; // Changed icon to a Trash bin for "Remove"
@@ -68,7 +69,7 @@ export default function CartPage() {
                                     {/* Course Thumbnail (Now aspect-video for e-learning standard) */}
                                     <div className="w-full sm:w-48 aspect-video shrink-0 rounded-xl overflow-hidden bg-gray-100">
                                         <img 
-                                            src={item.thumbnail || "https://via.placeholder.com/640x360"} 
+                                            src={item.thumbnail || DEFAULT_COURSE_IMAGE}
                                             alt={item.title} 
                                             className="w-full h-full object-cover" 
                                         />

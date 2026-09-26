@@ -15,7 +15,7 @@ function CategoryResults({ query }) {
     const [course, setCourse] = useState([]);
     const [loaded, setLoaded] = useState(false);
 
-    const [visibleCount, setVisibleCount] = useState(6);
+    const [visibleCount, setVisibleCount] = useState(8);
 
     useEffect(() => {
 
@@ -35,7 +35,7 @@ function CategoryResults({ query }) {
     }, [query]);
 
     const loadMore = () => {
-        setVisibleCount(prevCount => prevCount + 6);
+        setVisibleCount(prevCount => prevCount + 8);
     };
 
     if (!loaded) {
@@ -72,7 +72,7 @@ function CategoryResults({ query }) {
             <CategoriesHeroSection query={query} />
 
             <div className="w-full flex justify-center p-4">
-                <div className="w-full max-w-7xl mx-auto px-8 py-8">
+                <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 py-8">
                     
                     {/* Header Section with Animation */}
                     <Motion.div
@@ -113,7 +113,7 @@ function CategoryResults({ query }) {
                                 variants={gridContainerVariant}
                                 initial="hidden"
                                 animate="visible"
-                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
                             >
                                 {course.slice(0, visibleCount).map((item) => (
                                     <CourseCard

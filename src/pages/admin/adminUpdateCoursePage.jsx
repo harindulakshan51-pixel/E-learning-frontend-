@@ -45,7 +45,7 @@ export default function AdminUpdateCoursePage() {
                 }
 
                 const images = await Promise.all(imagePromises).catch((err) => {
-                    toast.error("Error uploading image. Try again.");
+                    toast.error(err.response?.data?.message || err.message || "Error uploading image. Try again.");
                     console.log(err);
                     return [];
                 });

@@ -69,7 +69,7 @@ export default function CoursePage() {
             </Motion.div>
 
             {/* Curriculum Section */}
-            <section className="relative overflow-hidden bg-gradient-to-b from-[#f1f4f9] to-[#e8ebf2] py-24 md:py-32">
+            <section className="relative overflow-hidden bg-gradient-to-b from-[#f1f4f9] to-[#e8ebf2] py-16 md:py-24">
                 
                 {/* Abstract Decoration */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
@@ -77,7 +77,7 @@ export default function CoursePage() {
                     <div className="absolute top-1/2 -right-48 w-[500px] h-[500px] bg-gradient-to-br from-blue-600/20 to-transparent rounded-full blur-3xl"></div>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-8 relative z-10">
+                <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 relative z-10">
                     
                     {/* Header Part with Scrolling Animation */}
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8 overflow-hidden">
@@ -138,9 +138,9 @@ export default function CoursePage() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.1 }}
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10"
                     >
-                        {products.slice(0, 3).map((item) => (
+                        {products.slice(0, 4).map((item) => (
                             <CourseCard
                                 key={item.courseId || item._id}
                                 course={item} 

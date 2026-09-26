@@ -1,3 +1,4 @@
+import { COURSE_IMAGES } from '../utils/images';
 import { useNavigate } from 'react-router-dom';
 
 export default function JoinSection() {
@@ -6,7 +7,7 @@ export default function JoinSection() {
   const courses = [
     {
       label: 'Web Development',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80',
+      image: COURSE_IMAGES.web,
       search: 'web development',
       rotate: '-rotate-12',
       position: 'top-0 -left-16 z-10',
@@ -14,7 +15,7 @@ export default function JoinSection() {
     },
     {
       label: 'Data Science',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
+      image: COURSE_IMAGES.python,
       search: 'data science',
       rotate: '-rotate-2',
       position: 'top-10 left-4 z-20',
@@ -22,7 +23,7 @@ export default function JoinSection() {
     },
     {
       label: 'UI/UX Design',
-      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80',
+      image: COURSE_IMAGES.design,
       search: 'ui ux',
       rotate: 'rotate-12',
       position: 'top-20 left-24 z-30', 
@@ -32,7 +33,7 @@ export default function JoinSection() {
 
   return (
     <div className="px-6 py-10 md:px-12 md:py-16 bg-slate-50">
-      <div className="max-w-7xl mx-auto bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 rounded-[3rem] p-10 md:p-16 text-white flex flex-col lg:flex-row justify-between items-center gap-16 shadow-2xl overflow-hidden border border-white/10">
+      <div className="max-w-[1700px] mx-auto bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 rounded-[3rem] p-10 md:p-16 text-white flex flex-col lg:flex-row justify-between items-center gap-16 shadow-2xl overflow-hidden border border-white/10">
         
         {/* Left Side Content */}
         <div className="w-full lg:w-1/2 text-center lg:text-left z-10">

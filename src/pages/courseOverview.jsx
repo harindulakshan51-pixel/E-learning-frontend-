@@ -1,3 +1,4 @@
+import { DEFAULT_COURSE_IMAGE } from '../utils/images';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -117,7 +118,7 @@ export default function ProductOverview() {
             {/* Thumbnail Section */}
             <Motion.section variants={scaleUpVariant} className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-gray-100 border border-gray-100">
               <img 
-                src={course.thumbnail || "https://via.placeholder.com/1280x720"} 
+                src={course.thumbnail || DEFAULT_COURSE_IMAGE}
                 alt={course.title} 
                 className="w-full h-full object-cover"
               />

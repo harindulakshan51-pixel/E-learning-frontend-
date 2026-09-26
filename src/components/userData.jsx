@@ -1,3 +1,4 @@
+import { DEFAULT_PROFILE_IMAGE } from '../utils/images';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
@@ -14,8 +15,8 @@ export default function UserData() {
       .catch(() => setUser(null));
   }, []);
 
-  // Default image generated using the user's first name
-  const defaultImage = `https://ui-avatars.com/api/?name=${user?.firstName || 'User'}&background=2563eb&color=fff&rounded=true`;
+  // Shared profile image from the configured storage project
+  const defaultImage = DEFAULT_PROFILE_IMAGE;
 
   return (
     <>
@@ -23,7 +24,7 @@ export default function UserData() {
         <div className="flex flex-row items-center relative">
           <img referrerPolicy="no-referrer"
             src={user.image || defaultImage} 
-            onError={(e) => { e.target.src = defaultImage; }} // Fallback if image link is broken
+            onError={(e) => { if (e.target.src !== defaultImage) e.target.src = defaultImage; }} // Fallback if image link is broken
             className="w-[42px] h-[42px] rounded-full object-cover border-2 border-blue-100 shadow-sm cursor-pointer hover:border-blue-300 transition-colors" 
             alt="User profile"
             onClick={() => setIsOpen(!isOpen)} 

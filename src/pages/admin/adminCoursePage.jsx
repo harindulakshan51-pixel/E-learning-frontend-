@@ -1,3 +1,4 @@
+import { DEFAULT_COURSE_IMAGE } from '../../utils/images';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BiPlus } from "react-icons/bi";
@@ -102,7 +103,7 @@ export default function AdminCoursePage() {
                       <td className="px-6 py-4">
                         <div className="w-[50px] h-[50px] rounded-lg overflow-hidden border border-slate-200 shadow-sm group-hover:shadow transition-all">
                           <img
-                            src={item.thumbnail || "/default-course.png"}
+                            src={item.thumbnail || DEFAULT_COURSE_IMAGE}
                             className="w-full h-full object-cover"
                             alt="thumbnail"
                           />

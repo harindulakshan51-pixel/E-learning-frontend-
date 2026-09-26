@@ -1,24 +1,25 @@
+import { COURSE_IMAGES } from '../utils/images';
 import React from 'react';
 
 export default function CategoriesHeroSection({ query }) {
     const courses = [
         {
             label: 'Web Development',
-            image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&q=80',
+            image: COURSE_IMAGES.web,
             rotate: '-rotate-6',
             position: 'top-0 left-6 z-10',
             size: 'w-48 h-28',
         },
         {
             label: 'Data Science',
-            image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&q=80',
+            image: COURSE_IMAGES.python,
             rotate: 'rotate-2',
             position: 'top-10 left-2 z-20',
             size: 'w-44 h-28',
         },
         {
             label: 'UI/UX Design',
-            image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&q=80',
+            image: COURSE_IMAGES.design,
             rotate: 'rotate-6',
             position: 'top-20 left-16 z-30',
             size: 'w-44 h-28',
@@ -26,7 +27,7 @@ export default function CategoriesHeroSection({ query }) {
     ];
 
     return (
-        <div className="w-full max-w-7xl mx-auto px-6 mt-1">
+        <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 mt-1">
             <div className="relative overflow-hidden rounded-[2.5rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10"
                 style={{ background: 'linear-gradient(135deg, #2563eb 0%, #4f46e5 60%, #6d28d9 100%)' }}>
 

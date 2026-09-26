@@ -46,7 +46,7 @@ export default function TermsServicePage() {
   return (
     <div className="w-full min-h-screen flex flex-col bg-[#f9f9f9]">
       {/* Hero */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 w-full">
+      <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 pt-8 w-full">
         <div className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-600 to-blue-500 rounded-[32px] px-8 py-16 md:px-16 md:py-20 shadow-md">
           <div className="absolute -top-24 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-24 -right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
@@ -63,7 +63,7 @@ export default function TermsServicePage() {
       </div>
 
       {/* Body */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-8 py-12 w-full">
+      <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 py-12 w-full">
         {/* Info bar */}
         <div className="flex flex-wrap gap-6 bg-white border border-slate-200 rounded-2xl p-6 mb-10 shadow-sm">
           <div className="flex items-center gap-3 text-sm text-slate-600 font-medium">

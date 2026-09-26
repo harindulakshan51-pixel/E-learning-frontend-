@@ -1,3 +1,4 @@
+import { DEFAULT_PROFILE_IMAGE } from '../utils/images';
 import { useNavigate } from "react-router-dom";
 
 export default function AboutUsPage() {
@@ -66,7 +67,7 @@ export default function AboutUsPage() {
       students: 100,
       courses: 10,
       rating: 5,
-      image: "https://rlawualidanksomoidky.supabase.co/storage/v1/object/public/Images/teachers/1.jpg",
+      image: DEFAULT_PROFILE_IMAGE,
       avatarBg: "bg-blue-100",
       avatarColor: "text-blue-700",
       tagColor: "bg-blue-600",
@@ -80,7 +81,7 @@ export default function AboutUsPage() {
       students: 90,
       courses: 6,
       rating: 4.8,
-      image: "https://rlawualidanksomoidky.supabase.co/storage/v1/object/public/Images/teachers/2.jpg",
+      image: DEFAULT_PROFILE_IMAGE,
       avatarBg: "bg-blue-100",
       avatarColor: "text-blue-700",
       tagColor: "bg-blue-600",
@@ -94,7 +95,7 @@ export default function AboutUsPage() {
       students: 200,
       courses: 20,
       rating: 5,
-      image: "https://rlawualidanksomoidky.supabase.co/storage/v1/object/public/Images/teachers/3.avif",
+      image: DEFAULT_PROFILE_IMAGE,
       avatarBg: "bg-blue-100",
       avatarColor: "text-blue-700",
       tagColor: "bg-blue-600",
@@ -104,7 +105,7 @@ export default function AboutUsPage() {
   return (
     <div className="w-full min-h-screen flex flex-col bg-[#f9f9f9]">
       {/* Hero Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 w-full">
+      <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 pt-8 w-full">
         <div className="relative overflow-hidden bg-gradient-to-br from-[#1e3a8a] via-[#2563eb] to-[#3b82f6] rounded-[32px] px-8 py-16 md:px-16 md:py-20 shadow-lg">
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-24 right-32 w-80 h-80 bg-white/5 rounded-full blur-2xl"></div>
@@ -125,7 +126,7 @@ export default function AboutUsPage() {
       </div>
 
       {/* Stats */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 w-full">
+      <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 py-12 w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {stats.map((st) => (
             <div key={st.label} className="bg-white border border-slate-200 rounded-3xl p-8 text-center shadow-sm hover:shadow-md transition-shadow">
@@ -137,7 +138,7 @@ export default function AboutUsPage() {
       </div>
 
       {/* Mission */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 w-full">
+      <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 py-12 w-full">
         <div className="flex items-center gap-3 mb-6">
           <div className="h-1.5 w-8 bg-blue-600 rounded-full"></div>
           <span className="text-blue-600 font-bold uppercase tracking-[0.15em] text-xs">Our Mission</span>
@@ -164,7 +165,7 @@ export default function AboutUsPage() {
 
       {/* Team (Matches Instructor Cards UI) */}
       <div className="w-full bg-gradient-to-b from-transparent to-slate-100/50 py-16 mt-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-1.5 w-8 bg-blue-600 rounded-full"></div>
             <span className="text-blue-600 font-bold uppercase tracking-[0.15em] text-xs">Expert-Led Faculty</span>
@@ -226,7 +227,7 @@ export default function AboutUsPage() {
       </div>
 
       {/* CTA */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16 w-full">
+      <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 py-16 w-full">
         <div className="bg-gradient-to-r from-blue-900 to-blue-600 rounded-[32px] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
           <div className="max-w-xl">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to master your craft?</h2>

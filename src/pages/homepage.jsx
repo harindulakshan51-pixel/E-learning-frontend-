@@ -19,7 +19,7 @@ export default function Homepage() {
   return (
     <div className="min-h-screen w-full flex flex-col bg-white">
       <Header />
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         <div className="w-full">
           <Routes>
             <Route path="/" element={<CoursePage />} />

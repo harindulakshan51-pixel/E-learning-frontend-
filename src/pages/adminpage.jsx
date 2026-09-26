@@ -4,7 +4,7 @@ import { IoCalendarClear } from "react-icons/io5";
 import { BiSolidVideos } from "react-icons/bi";
 import { FaUsers } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
-import { FaBookOpenReader } from "react-icons/fa6";
+import { LOGO_IMAGE } from '../utils/images';
 
 import AdminCoursePage from "./admin/adminCoursePage";
 import AdminAddCoursePage from './admin/adminAddCoursePage';
@@ -33,7 +33,7 @@ export default function Admin() {
           to="/"
         >
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-md shadow-blue-600/40 group-hover:scale-105 transition-transform">
-            <FaBookOpenReader className="text-white" size={16} />
+            <img src={LOGO_IMAGE} alt="" className="w-8 h-8 object-contain" />
           </div>
           <span className="text-white font-bold text-xl tracking-wide">Scholarly</span>
         </Link>

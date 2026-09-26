@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import UserData from "./userData";
 import { useState } from "react";
+import { LOGO_IMAGE } from '../utils/images';
 
 export default function Header() {
   const [query, setQuery] = useState("");
@@ -25,10 +26,11 @@ export default function Header() {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 flex justify-between items-center px-3 sm:px-8 h-20">
+    <nav className="relative mt-2 mx-2 md:mx-4 z-50 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100 rounded-2xl flex justify-between items-center px-3 sm:px-8 h-20">
       <div className="flex items-center gap-12">
         <div className="flex items-center">
-          <Link to="/" className="text-xl sm:text-3xl font-black text-blue-700 tracking-tight">
+          <Link to="/" className="flex items-center gap-2 text-xl sm:text-3xl font-black text-blue-700 tracking-tight">
+            <img src={LOGO_IMAGE} alt="" className="w-8 h-8 sm:w-10 sm:h-10 object-contain shrink-0" />
             Scholarly
           </Link>
         </div>
@@ -36,6 +38,7 @@ export default function Header() {
         <div className="hidden md:flex gap-8 items-center">
           <Link to="/categories" className="text-slate-600 hover:text-blue-600 font-bold text-base transition-all">Categories</Link>
           <Link to="/instructors" className="text-slate-600 hover:text-blue-600 font-bold text-base transition-all">Instructors</Link>
+          <Link to="/about" className="text-slate-600 hover:text-blue-600 font-bold text-base transition-all">About</Link>
         </div>
       </div>
 

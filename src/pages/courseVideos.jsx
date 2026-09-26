@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { api, errorMessage } from '../utils/api';
 import YouTubePlayer from '../components/YouTubePlayer';
@@ -7,6 +7,8 @@ export default function CourseVideos() {
   return <CourseWatch key={courseId} courseId={courseId} />;
 }
 function CourseWatch({ courseId }) {
+  const [positions, setPositions] = useState({});
+  const saves = useRef(Promise.resolve());
   const [data, setData] = useState(null);
   const [activeId, setActiveId] = useState('');
   const [error, setError] = useState('');
@@ -22,9 +24,13 @@ function CourseWatch({ courseId }) {
     return () => { active = false; };
   }, [courseId]);
   const video = data?.videos.find(v => v.videoId === activeId);
-  async function progress(position, completed) {
-    try { await api.put('/enrollments/progress/' + encodeURIComponent(courseId), { videoId: activeId, position, completed }); setProgressError(''); }
-    catch (e) { if ([401, 403].includes(e.response?.status)) setError(errorMessage(e)); else setProgressError('Progress could not be saved. Check your connection.'); }
+  function progress(videoId, position, completed) {
+    setPositions(current => ({ ...current, [videoId]: position }));
+    // Serialize writes so a slow previous-lesson save cannot overwrite the new lesson.
+    saves.current = saves.current.then(async () => {
+      try { await api.put('/enrollments/progress/' + encodeURIComponent(courseId), { videoId, position, completed }, { timeout: 10000 }); setProgressError(''); }
+      catch (e) { if ([401, 403, 404].includes(e.response?.status)) setError(errorMessage(e)); else setProgressError('Progress could not be saved. Check your connection.'); }
+    });
   }
   return <main className="min-h-[80vh] bg-gray-950 text-white">
     <div className="p-4 bg-gray-900 border-b border-gray-800 flex gap-5"><Link to="/myLearning" className="text-blue-300">← My Courses</Link><span>{data?.course.title || courseId}</span></div>
@@ -32,7 +38,7 @@ function CourseWatch({ courseId }) {
       !data ? <p role="status" className="p-12">Loading course…</p> :
       <div className="flex flex-col lg:flex-row">
         <section className="flex-1 min-w-0">{video ? <>
-          <YouTubePlayer key={video.videoId} video={video} resume={data.enrollment?.lastVideoId === video.videoId ? data.enrollment.position : 0} onProgress={progress} />
+          <YouTubePlayer key={video.videoId} video={video} resume={positions[video.videoId] ?? (data.enrollment?.lastVideoId === video.videoId ? data.enrollment.position : 0)} onProgress={(position, completed) => progress(video.videoId, position, completed)} />
           <div className="p-6"><h1 className="text-xl font-bold">{video.title}</h1><p className="text-slate-400 mt-2">{video.duration}</p>{progressError && <p role="status" className="text-amber-300 mt-3">{progressError}</p>}
           <div className="flex gap-3 mt-6">{['Previous', 'Next'].map((label, i) => { const index = data.videos.findIndex(v => v.videoId === activeId) + (i ? 1 : -1); return <button key={label} disabled={!data.videos[index]} onClick={() => setActiveId(data.videos[index].videoId)} className="bg-blue-600 rounded-lg px-4 py-2 disabled:opacity-30">{label}</button>; })}</div></div>
         </> : <p className="p-12 text-slate-400">No lessons have been added yet.</p>}</section>

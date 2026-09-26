@@ -40,7 +40,7 @@ export default function AdminAddCoursePage() {
                 thumbnail = await uploadFile(file);
                 setUploading(false);
             } catch (err) {
-                toast.error("Error uploading image. Please try again.");
+                toast.error(err.response?.data?.message || err.message || "Error uploading image. Please try again.");
                 console.log("Upload error:", err);
                 setUploading(false);
                 return;
