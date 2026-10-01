@@ -44,23 +44,39 @@ export default function CourseDeleteButton({ courseId, reload }) {
       </button>
 
       {isMessageOpen && (
-        <div className="w-screen h-screen fixed top-0 left-0 bg-black/55 flex items-center justify-center">
-          <div className="w-[400px] bg-white rounded-2xl p-6 relative flex flex-col items-center justify-center">
-
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-sm">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="course-delete-title"
+            aria-describedby="course-delete-description"
+            className="relative w-full max-w-md whitespace-normal rounded-2xl border border-slate-200 bg-white p-6 text-left shadow-2xl sm:p-8"
+          >
             <button
-              className="w-10 h-10 bg-red-600 text-white rounded-full font-bold cursor-pointer hover:bg-red-800 absolute right-[-15px] top-[-15px]"
+              aria-label="Close delete confirmation"
+              className="absolute right-4 top-4 flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               onClick={() => setIsMessageOpen(false)}
             >
-              X
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5">
+                <path strokeLinecap="round" d="m6 6 12 12M18 6 6 18" />
+              </svg>
             </button>
 
-            <h1 className="text-xl mb-6 text-center">
-              Are you sure you want to delete course <b>{courseId}</b>?
-            </h1>
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-red-500 ring-4 ring-red-50/50">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v5m0 3h.01M10.3 3.9 2.5 17.4A2 2 0 0 0 4.2 20h15.6a2 2 0 0 0 1.7-2.6L13.7 3.9a2 2 0 0 0-3.4 0Z" />
+              </svg>
+            </div>
+            <h2 id="course-delete-title" className="text-xl font-bold tracking-tight text-slate-900">
+              Delete course?
+            </h2>
+            <p id="course-delete-description" className="mt-2 break-words text-sm leading-6 text-slate-500">
+              Are you sure you want to delete course <b className="font-semibold text-slate-900">{courseId}</b>?
+            </p>
 
-            <div className="flex gap-5">
+            <div className="mt-6 flex gap-3 border-t border-slate-100 pt-5">
               <button
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+                className="flex-1 cursor-pointer rounded-lg bg-red-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-red-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500 disabled:cursor-wait disabled:opacity-60"
                 disabled={isDeleting}
                 onClick={handleDelete}
               >
@@ -68,13 +84,12 @@ export default function CourseDeleteButton({ courseId, reload }) {
               </button>
 
               <button
-                className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-600 transition"
+                className="flex-1 cursor-pointer rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 shadow-sm transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 onClick={() => setIsMessageOpen(false)}
               >
                 Cancel
               </button>
             </div>
-
           </div>
         </div>
       )}
