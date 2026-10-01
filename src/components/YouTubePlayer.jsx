@@ -122,7 +122,7 @@ export default function YouTubePlayer({ video, resume = 0, onProgress }) {
   return <div className="scholarly-player bg-black text-white">
     <div ref={host} />
     <div className="px-4 py-2 text-sm text-slate-300" role={error ? 'alert' : 'status'}>{error || status}
-      {error && <button className="ml-3 text-blue-300 underline" onClick={() => { setError(''); setStatus('Loading player…'); setAttempt(n => n + 1); }}>Retry</button>}
+      {error && <button className="ml-3 text-accent-300 underline" onClick={() => { setError(''); setStatus('Loading player…'); setAttempt(n => n + 1); }}>Retry</button>}
     </div>
   </div>;
 }

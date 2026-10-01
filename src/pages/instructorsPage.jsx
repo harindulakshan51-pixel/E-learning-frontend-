@@ -48,7 +48,7 @@ export default function InstructorsPage() {
         variants={fadeUpVariant}
         initial="hidden"
         animate="visible"
-        className="mx-80 mt-10 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 px-8 py-12 text-white relative overflow-hidden"
+        className="mx-80 mt-10 rounded-2xl bg-gradient-to-br from-accent to-accent px-8 py-12 text-white relative overflow-hidden"
       >
         {/* decorative circles */}
         <div className="absolute -top-10 -right-10 w-64 h-64 rounded-full bg-white/5"></div>
@@ -60,9 +60,9 @@ export default function InstructorsPage() {
         </span>
         <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mt-3 mb-4">
           Guided by the world's<br />
-          <span className="text-blue-200">most refined masters.</span>
+          <span className="text-accent-200">most refined masters.</span>
         </h1>
-        <p className="text-blue-100 text-base max-w-xl leading-relaxed">
+        <p className="text-accent-100 text-base max-w-xl leading-relaxed">
           Our Faculty of Experts aren't just teachers — they are practitioners at the pinnacle of their craft.
         </p>
       </Motion.div>
@@ -129,14 +129,14 @@ export default function InstructorsPage() {
                           className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-slate-100">
-                          <span className="text-7xl font-extrabold text-blue-200 select-none">
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent-50 to-slate-100">
+                          <span className="text-7xl font-extrabold text-accent-200 select-none">
                             {inst.name.charAt(0).toUpperCase()}
                           </span>
                         </div>
                       )}
                       {/* Specialty badge — course category badge style */}
-                      <span className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider">
+                      <span className="absolute top-4 left-4 bg-accent text-white px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider">
                         {inst.specialty || "Faculty"}
                       </span>
                       {/* Rating badge */}
@@ -150,14 +150,14 @@ export default function InstructorsPage() {
                     {/* Info */}
                     <div className="px-2 flex flex-col flex-grow">
                       {/* Name */}
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-1">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-accent transition-colors line-clamp-1">
                         {inst.name}
                       </h3>
 
                       {/* Title + avatar row */}
                       <div className="flex items-center gap-3 mb-5">
-                        <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                          <span className="text-xs font-bold text-blue-600">
+                        <div className="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center shrink-0">
+                          <span className="text-xs font-bold text-accent">
                             {inst.name.charAt(0).toUpperCase()}
                           </span>
                         </div>
@@ -193,7 +193,7 @@ export default function InstructorsPage() {
                         </div>
 
                         {/* Buy Course style button */}
-                        <button className="bg-blue-600 text-white rounded-xl px-6 py-3 font-bold text-sm hover:bg-blue-700 hover:shadow-lg transition-all active:scale-95">
+                        <button className="bg-accent text-white rounded-xl px-6 py-3 font-bold text-sm hover:bg-accent hover:shadow-lg transition-all active:scale-95">
                           View Courses
                         </button>
                       </div>
@@ -214,10 +214,10 @@ export default function InstructorsPage() {
               >
                 <button
                   onClick={() => setVisibleCount(prev => prev + 6)}
-                  className="group inline-flex items-center gap-4 bg-white px-10 py-4 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-600/30 transition-all hover:shadow-md active:scale-95 cursor-pointer"
+                  className="group inline-flex items-center gap-4 bg-white px-10 py-4 rounded-2xl shadow-sm border border-slate-200 hover:border-accent/30 transition-all hover:shadow-md active:scale-95 cursor-pointer"
                 >
-                  <span className="font-semibold text-[#004ac6] text-lg">Load More Instructors</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#004ac6] transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <span className="font-semibold text-accent text-lg">Load More Instructors</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-accent transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>

@@ -20,7 +20,7 @@ export default function Admin() {
   const navLinkClass = ({ isActive }) =>
     `h-[48px] w-[96%] mx-auto flex items-center gap-4 px-5 rounded-xl transition-all duration-300 text-sm font-medium ${
       isActive
-        ? "bg-blue-600 text-white shadow-md shadow-blue-600/40"
+        ? "bg-accent text-white shadow-md shadow-accent/40"
         : "text-slate-400 hover:bg-slate-800 hover:text-white hover:translate-x-1"
     }`;
 
@@ -32,10 +32,10 @@ export default function Admin() {
           className="w-full h-[70px] flex items-center gap-3 px-8 border-b border-slate-800/80 shrink-0 group"
           to="/"
         >
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-md shadow-blue-600/40 group-hover:scale-105 transition-transform">
+          <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center shadow-md shadow-accent/40 group-hover:scale-105 transition-transform">
             <img src={LOGO_IMAGE} alt="" className="w-8 h-8 object-contain" />
           </div>
-          <span className="text-white font-bold text-xl tracking-wide">Scholarly</span>
+          <span className="text-white font-bold text-xl tracking-wide"><span className="text-brand">Scholarly</span></span>
         </Link>
         
         {/* Padding වෙනස් කරලා තියෙනවා Shadow එකට ඉඩ තියන්න */}

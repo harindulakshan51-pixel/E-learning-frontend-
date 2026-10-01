@@ -86,7 +86,7 @@ export default function HeroSection() {
           <div className="flex flex-wrap gap-4 items-center mb-12">
             <button
               onClick={() => navigate('/categories')}
-              className="bg-[#0a1961] text-white px-8 py-3.5 rounded-lg font-bold text-base hover:bg-blue-900 transition-colors shadow-lg shadow-blue-900/20 cursor-pointer"
+              className="bg-brand text-white px-8 py-3.5 rounded-lg font-bold text-base hover:bg-brand transition-colors shadow-lg shadow-accent/20 cursor-pointer"
             >
               Explore Courses
             </button>
@@ -127,7 +127,7 @@ export default function HeroSection() {
             onClick={() => setCurrentIndex(index)}
             aria-label={`Go to slide ${index + 1}`}
             className={`h-2.5 rounded-full transition-all duration-500 cursor-pointer ${
-              index === currentIndex ? 'w-8 bg-[#0a1961]' : 'w-2.5 bg-gray-400/60 hover:bg-gray-400'
+              index === currentIndex ? 'w-8 bg-accent' : 'w-2.5 bg-gray-400/60 hover:bg-gray-400'
             }`}
           />
         ))}

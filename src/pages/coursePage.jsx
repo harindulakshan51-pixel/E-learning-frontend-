@@ -73,8 +73,8 @@ export default function CoursePage() {
                 
                 {/* Abstract Decoration */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
-                    <div className="absolute -top-24 -left-24 w-96 h-96 border-[40px] border-blue-600/10 rounded-full"></div>
-                    <div className="absolute top-1/2 -right-48 w-[500px] h-[500px] bg-gradient-to-br from-blue-600/20 to-transparent rounded-full blur-3xl"></div>
+                    <div className="absolute -top-24 -left-24 w-96 h-96 border-[40px] border-accent/10 rounded-full"></div>
+                    <div className="absolute top-1/2 -right-48 w-[500px] h-[500px] bg-gradient-to-br from-accent/20 to-transparent rounded-full blur-3xl"></div>
                 </div>
 
                 <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 relative z-10">
@@ -89,8 +89,8 @@ export default function CoursePage() {
                             className="max-w-2xl"
                         >
                             <div className="flex items-center gap-3 mb-5">
-                                <div className="h-1 w-10 bg-[#244ad2] rounded-full"></div>
-                                <span className="text-[#244ad2] font-black uppercase tracking-[0.2em] text-[10px]">
+                                <div className="h-1 w-10 bg-accent rounded-full"></div>
+                                <span className="text-accent font-black uppercase tracking-[0.2em] text-[10px]">
                                     THE CURRICULUM
                                 </span>
                             </div>
@@ -113,14 +113,14 @@ export default function CoursePage() {
                         >
                             <Link 
                                 to="/categories" 
-                                className="group inline-flex items-center gap-3 bg-white px-7 py-3.5 rounded-full shadow-sm border border-[#e2e8f0] hover:border-[#244ad2]/30 transition-all duration-300 hover:shadow-md active:scale-95"
+                                className="group inline-flex items-center gap-3 bg-white px-7 py-3.5 rounded-full shadow-sm border border-[#e2e8f0] hover:border-accent/30 transition-all duration-300 hover:shadow-md active:scale-95"
                             >
-                                <span className="font-bold text-[#244ad2] text-[15px]">
+                                <span className="font-bold text-accent text-[15px]">
                                     Explore Full Catalog
                                 </span>
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
-                                    className="w-5 h-5 text-[#244ad2] transition-transform group-hover:translate-x-1" 
+                                    className="w-5 h-5 text-accent transition-transform group-hover:translate-x-1" 
                                     fill="none" 
                                     viewBox="0 0 24 24" 
                                     stroke="currentColor" 

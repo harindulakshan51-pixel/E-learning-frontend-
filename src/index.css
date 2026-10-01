@@ -3,5 +3,11 @@
 @theme {
   --color-primary: #FFFFFF;
   --color-secondary: #1A1C1C;
-  --color-accent: #185ADE;
+  --color-accent: #1447E6;
+  --color-brand: #0A1961;
+  /* Pale surfaces and subtle borders retain their tonal hierarchy. */
+  --color-accent-50: color-mix(in srgb, var(--color-accent) 5%, white);
+  --color-accent-100: color-mix(in srgb, var(--color-accent) 12%, white);
+  --color-accent-200: color-mix(in srgb, var(--color-accent) 25%, white);
+  --color-accent-300: color-mix(in srgb, var(--color-accent) 40%, white);
 }

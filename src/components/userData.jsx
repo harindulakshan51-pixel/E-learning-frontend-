@@ -25,7 +25,7 @@ export default function UserData() {
           <img referrerPolicy="no-referrer"
             src={user.image || defaultImage} 
             onError={(e) => { if (e.target.src !== defaultImage) e.target.src = defaultImage; }} // Fallback if image link is broken
-            className="w-[42px] h-[42px] rounded-full object-cover border-2 border-blue-100 shadow-sm cursor-pointer hover:border-blue-300 transition-colors" 
+            className="w-[42px] h-[42px] rounded-full object-cover border-2 border-accent-100 shadow-sm cursor-pointer hover:border-accent-300 transition-colors" 
             alt="User profile"
             onClick={() => setIsOpen(!isOpen)} 
           />
@@ -33,7 +33,7 @@ export default function UserData() {
           <div className="relative ml-2">
             {/* name and arrow */}
             <div 
-              className="flex items-center text-slate-700 font-semibold cursor-pointer select-none hover:text-blue-600 transition-colors"
+              className="flex items-center text-slate-700 font-semibold cursor-pointer select-none hover:text-accent transition-colors"
               onClick={() => setIsOpen(!isOpen)}
             >
               {user.firstName}
@@ -72,10 +72,10 @@ export default function UserData() {
         </div>
       ) : (
         <div className="flex items-center gap-2 sm:gap-5">
-          <Link to="/login" className="text-slate-600 hover:text-blue-600 font-bold text-base transition-all">
+          <Link to="/login" className="text-slate-600 hover:text-accent font-bold text-base transition-all">
             Login
           </Link>
-          <Link to="/register" className="bg-blue-600 text-white px-3 sm:px-7 py-2.5 rounded-xl font-bold text-base hover:bg-blue-700 transition-all duration-200 shadow-sm active:scale-95">
+          <Link to="/register" className="bg-accent text-white px-3 sm:px-7 py-2.5 rounded-xl font-bold text-base hover:bg-accent transition-all duration-200 shadow-sm active:scale-95">
             Sign Up
           </Link>
         </div>

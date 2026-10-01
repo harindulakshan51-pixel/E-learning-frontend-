@@ -20,7 +20,7 @@ export default function ViewOrderInfoCustomer({ order }) {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
+        className="bg-accent hover:bg-accent text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
       >
         View Info
       </button>

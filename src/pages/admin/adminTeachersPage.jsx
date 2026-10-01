@@ -107,7 +107,7 @@ export default function AdminTeachersPage() {
 
   const specialtyColors = {
     Design: "bg-pink-50 text-pink-600 border-pink-100",
-    Development: "bg-blue-50 text-blue-600 border-blue-100",
+    Development: "bg-accent-50 text-accent border-accent-100",
     Analysis: "bg-amber-50 text-amber-600 border-amber-100",
     Other: "bg-slate-100 text-slate-500 border-slate-200",
   };
@@ -122,7 +122,7 @@ export default function AdminTeachersPage() {
         </div>
         <button
           onClick={openAdd}
-          className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition shadow"
+          className="bg-accent hover:bg-accent text-white text-sm font-bold px-5 py-2.5 rounded-xl transition shadow"
         >
           + Add Instructor
         </button>
@@ -161,15 +161,15 @@ export default function AdminTeachersPage() {
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {instructors.map((inst) => (
-                  <tr key={inst.instructorId} className="hover:bg-blue-50/30 transition-colors">
+                  <tr key={inst.instructorId} className="hover:bg-accent-50/30 transition-colors">
                     <td className="px-5 py-4">
                       <div className="flex items-center gap-3">
                         {inst.image ? (
                           <img src={inst.image} alt={inst.name}
                             className="w-10 h-10 rounded-xl object-cover shrink-0" />
                         ) : (
-                          <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
-                            <span className="text-blue-600 font-bold text-sm">
+                          <div className="w-10 h-10 rounded-xl bg-accent-100 flex items-center justify-center shrink-0">
+                            <span className="text-accent font-bold text-sm">
                               {inst.name.charAt(0).toUpperCase()}
                             </span>
                           </div>
@@ -196,7 +196,7 @@ export default function AdminTeachersPage() {
                     <td className="px-5 py-4 text-center">
                       <div className="flex items-center justify-center gap-2">
                         <button onClick={() => openEdit(inst)}
-                          className="text-xs font-bold bg-blue-50 text-blue-600 hover:bg-blue-100 px-3 py-1.5 rounded-lg transition">
+                          className="text-xs font-bold bg-accent-50 text-accent hover:bg-accent-100 px-3 py-1.5 rounded-lg transition">
                           Edit
                         </button>
                         <button onClick={() => setDeleteTarget(inst)}
@@ -233,7 +233,7 @@ export default function AdminTeachersPage() {
                   <input type="text" placeholder="e.g. INST001"
                     value={form.instructorId}
                     onChange={(e) => setForm({ ...form, instructorId: e.target.value })}
-                    className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
                 </div>
               ) : (
                 <div>
@@ -251,7 +251,7 @@ export default function AdminTeachersPage() {
                 <input type="text" placeholder="e.g. Sarah Chen"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               </div>
 
               {/* Title */}
@@ -260,7 +260,7 @@ export default function AdminTeachersPage() {
                 <input type="text" placeholder="e.g. Full Stack Architect"
                   value={form.title}
                   onChange={(e) => setForm({ ...form, title: e.target.value })}
-                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               </div>
 
               {/* Specialty */}
@@ -268,7 +268,7 @@ export default function AdminTeachersPage() {
                 <label className="block text-xs font-bold text-slate-600 mb-1">Specialty *</label>
                 <select value={form.specialty}
                   onChange={(e) => setForm({ ...form, specialty: e.target.value })}
-                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-white">
                   <option>Design</option>
                   <option>Development</option>
                   <option>Analysis</option>
@@ -282,7 +282,7 @@ export default function AdminTeachersPage() {
                 <textarea rows={3} placeholder="Short description about the instructor..."
                   value={form.bio}
                   onChange={(e) => setForm({ ...form, bio: e.target.value })}
-                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" />
+                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent resize-none" />
               </div>
 
               {/* Image URL */}
@@ -291,7 +291,7 @@ export default function AdminTeachersPage() {
                 <input type="text" placeholder="https://..."
                   value={form.image}
                   onChange={(e) => setForm({ ...form, image: e.target.value })}
-                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
                 {form.image && (
                   <img src={form.image} alt="preview"
                     className="mt-2 w-16 h-16 rounded-xl object-cover border border-slate-100" />
@@ -305,21 +305,21 @@ export default function AdminTeachersPage() {
                   <input type="number" step="0.1" min="0" max="5" placeholder="4.9"
                     value={form.rating}
                     onChange={(e) => setForm({ ...form, rating: e.target.value })}
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    className="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-slate-600 mb-1">Students</label>
                   <input type="text" placeholder="12,400+"
                     value={form.students}
                     onChange={(e) => setForm({ ...form, students: e.target.value })}
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    className="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-slate-600 mb-1">Courses</label>
                   <input type="number" min="0" placeholder="14"
                     value={form.courses}
                     onChange={(e) => setForm({ ...form, courses: e.target.value })}
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    className="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
                 </div>
               </div>
             </div>
@@ -337,7 +337,7 @@ export default function AdminTeachersPage() {
                 Cancel
               </button>
               <button onClick={handleSave} disabled={saving}
-                className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold py-2.5 rounded-xl text-sm transition">
+                className="flex-1 bg-accent hover:bg-accent disabled:opacity-50 text-white font-bold py-2.5 rounded-xl text-sm transition">
                 {saving ? "Saving..." : editTarget ? "Update Instructor" : "Add Instructor"}
               </button>
             </div>

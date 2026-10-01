@@ -40,11 +40,11 @@ export default function AdminUsersPage() {
         {/* Search Bar (UI Only) */}
         <div className="flex items-center gap-3">
           <div className="relative group hidden sm:block">
-            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors" size={18} />
+            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-accent transition-colors" size={18} />
             <input 
               type="text" 
               placeholder="Search users..." 
-              className="pl-10 pr-4 py-2.5 w-full md:w-64 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm"
+              className="pl-10 pr-4 py-2.5 w-full md:w-64 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all shadow-sm"
             />
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function AdminUsersPage() {
                           <img
                             src={item.image || DEFAULT_PROFILE_IMAGE}
                             alt="Profile"
-                            className="w-full h-full object-cover rounded-full ring-2 ring-slate-100 shadow-sm group-hover:ring-blue-100 transition-all"
+                            className="w-full h-full object-cover rounded-full ring-2 ring-slate-100 shadow-sm group-hover:ring-accent-100 transition-all"
                             onError={(e) => {
                               if (e.target.src !== DEFAULT_PROFILE_IMAGE) e.target.src = DEFAULT_PROFILE_IMAGE;
                             }}
@@ -102,7 +102,7 @@ export default function AdminUsersPage() {
                         <div className="flex items-center gap-2">
                           <span className="font-semibold text-slate-800 text-sm">{item.email}</span>
                           {item.isEmailVerified && (
-                            <div title="Verified Email" className="bg-blue-50 p-1 rounded-full text-blue-500">
+                            <div title="Verified Email" className="bg-accent-50 p-1 rounded-full text-accent">
                               <GoVerified size={14} />
                             </div>
                           )}

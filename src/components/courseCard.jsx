@@ -29,7 +29,7 @@ export default function CourseCard({ course }) {
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           />
           {/* Badge */}
-          <span className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider">
+          <span className="absolute top-4 left-4 bg-accent text-white px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider">
             {course.category || "Design Faculty"}
           </span>
         </div>
@@ -37,14 +37,14 @@ export default function CourseCard({ course }) {
         {/* Course Details Section */}
         <div className="px-2 flex flex-col flex-grow">
           {/* Course Title */}
-          <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+          <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-accent transition-colors line-clamp-2">
             {course.title}
           </h3>
           
           {/* Instructor Section */}
           <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden">
-                  <span className="text-xs font-bold text-blue-600">
+              <div className="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center overflow-hidden">
+                  <span className="text-xs font-bold text-accent">
                       {course.instructor?.charAt(0) || "I"}
                   </span>
               </div>
@@ -63,7 +63,7 @@ export default function CourseCard({ course }) {
               </span>
             </div>
             
-            <Link to={"/overview/"+ course.courseId} onClick={(e) => e.stopPropagation()} className="bg-blue-600 text-white rounded-xl px-6 py-3 font-bold text-sm hover:bg-blue-700 hover:shadow-lg transition-all active:scale-95">
+            <Link to={"/overview/"+ course.courseId} onClick={(e) => e.stopPropagation()} className="bg-accent text-white rounded-xl px-6 py-3 font-bold text-sm hover:bg-accent hover:shadow-lg transition-all active:scale-95">
               View Course
             </Link>
           </div>

@@ -29,16 +29,16 @@ export default function Header() {
     <nav className="relative mt-2 mx-2 md:mx-4 z-50 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100 rounded-2xl flex justify-between items-center px-3 sm:px-8 h-20">
       <div className="flex items-center gap-12">
         <div className="flex items-center">
-          <Link to="/" className="flex items-center gap-2 text-xl sm:text-3xl font-black text-blue-700 tracking-tight">
+          <Link to="/" className="flex items-center gap-2 text-xl sm:text-3xl font-black text-accent tracking-tight">
             <img src={LOGO_IMAGE} alt="" className="w-8 h-8 sm:w-10 sm:h-10 object-contain shrink-0" />
-            Scholarly
+            <span className="text-brand">Scholarly</span>
           </Link>
         </div>
 
         <div className="hidden md:flex gap-8 items-center">
-          <Link to="/categories" className="text-slate-600 hover:text-blue-600 font-bold text-base transition-all">Categories</Link>
-          <Link to="/instructors" className="text-slate-600 hover:text-blue-600 font-bold text-base transition-all">Instructors</Link>
-          <Link to="/about" className="text-slate-600 hover:text-blue-600 font-bold text-base transition-all">About</Link>
+          <Link to="/categories" className="text-slate-600 hover:text-accent font-bold text-base transition-all">Categories</Link>
+          {/* <Link to="/instructors" className="text-slate-600 hover:text-accent font-bold text-base transition-all">Instructors</Link> */}
+          <Link to="/about" className="text-slate-600 hover:text-accent font-bold text-base transition-all">About</Link>
         </div>
       </div>
 
@@ -52,7 +52,7 @@ export default function Header() {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className="w-5 h-5 text-gray-400 cursor-pointer hover:text-blue-600 transition-colors"
+            className="w-5 h-5 text-gray-400 cursor-pointer hover:text-accent transition-colors"
             onClick={handleIconClick}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -67,7 +67,7 @@ export default function Header() {
           />
         </div>
 
-        <Link to="/myLearning" className="text-blue-600 font-bold text-sm whitespace-nowrap">My Courses</Link>
+        <Link to="/myLearning" className="text-accent font-bold text-sm whitespace-nowrap">My Courses</Link>
 
         <div className="h-6 w-px bg-gray-200"></div>
 

@@ -84,7 +84,7 @@ function CategoryResults({ query }) {
                         <h2 className="text-4xl md:text-[2.75rem] font-black text-[#0a1128] mb-5 tracking-tight leading-[1.15]">
                             {query ? (
                                 <span>
-                                    Search Results for <span className="text-[#244ad2]">"{query}"</span>
+                                    Search Results for <span className="text-accent">"{query}"</span>
                                 </span>
                             ) : (
                                 "Master In-Demand Industrial Skills"
@@ -134,14 +134,14 @@ function CategoryResults({ query }) {
                                 >
                                     <button 
                                         onClick={loadMore}
-                                        className="group inline-flex items-center gap-3 bg-white px-7 py-3.5 rounded-full shadow-sm border border-[#e2e8f0] hover:border-[#244ad2]/30 transition-all duration-300 hover:shadow-md active:scale-95 cursor-pointer"
+                                        className="group inline-flex items-center gap-3 bg-white px-7 py-3.5 rounded-full shadow-sm border border-[#e2e8f0] hover:border-accent/30 transition-all duration-300 hover:shadow-md active:scale-95 cursor-pointer"
                                     >
-                                        <span className="font-bold text-[#244ad2] text-[15px]">
+                                        <span className="font-bold text-accent text-[15px]">
                                             Load More Courses
                                         </span>
                                         <svg 
                                             xmlns="http://www.w3.org/2000/svg" 
-                                            className="w-5 h-5 text-[#244ad2] transition-transform group-hover:translate-y-1" 
+                                            className="w-5 h-5 text-accent transition-transform group-hover:translate-y-1" 
                                             fill="none" 
                                             viewBox="0 0 24 24" 
                                             stroke="currentColor" 

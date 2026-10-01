@@ -70,7 +70,7 @@ export default function OrdersPage() {
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {orders.map((order, index) => (
-                  <tr key={index} className="hover:bg-blue-50/30 transition-colors duration-200">
+                  <tr key={index} className="hover:bg-accent-50/30 transition-colors duration-200">
                     <td className="px-6 py-4">
                       <span className="font-mono text-xs font-bold bg-slate-100 text-slate-600 px-2 py-1 rounded">
                         {order.orderId}

@@ -32,7 +32,7 @@ export default function AdminOrdersPage() {
 
   const statusStyles = {
     Pending:    { bg: "#FFF7ED", color: "#C2410C", dot: "#F97316", border: "#FFEDD5" },
-    Processing: { bg: "#F0F9FF", color: "#0369A1", dot: "#0EA5E9", border: "#E0F2FE" },
+    Processing: { bg: "var(--color-accent-50)", color: "var(--color-accent)", dot: "var(--color-accent)", border: "var(--color-accent-100)" },
     Completed:  { bg: "#F0FDF4", color: "#15803D", dot: "#22C55E", border: "#DCFCE7" },
     Cancelled:  { bg: "#FEF2F2", color: "#B91C1C", dot: "#EF4444", border: "#FEE2E2" },
   };
@@ -49,11 +49,11 @@ export default function AdminOrdersPage() {
         {/* Search & Filter Bar (UI Elements) */}
         <div className="flex items-center gap-3">
           <div className="relative group">
-            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors" size={18} />
+            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-accent transition-colors" size={18} />
             <input 
               type="text" 
               placeholder="Search orders..." 
-              className="pl-10 pr-4 py-2.5 w-full md:w-64 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm"
+              className="pl-10 pr-4 py-2.5 w-full md:w-64 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all shadow-sm"
             />
           </div>
           <button className="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all shadow-sm">

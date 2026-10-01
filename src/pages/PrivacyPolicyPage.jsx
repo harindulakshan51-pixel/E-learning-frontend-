@@ -10,7 +10,7 @@ export default function PrivacyPolicyPage() {
         <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
           
           {/* Header */}
-          <div className="bg-[#0a1961] px-10 py-16 text-white">
+          <div className="bg-accent px-10 py-16 text-white">
             <div className="inline-flex items-center gap-3 mb-6">
               <div className="w-6 h-0.5 bg-orange-400"></div>
               <span className="text-[11px] font-extrabold tracking-[0.2em] uppercase text-white/90">
@@ -26,11 +26,11 @@ export default function PrivacyPolicyPage() {
             
             <section className="mb-12">
               <h2 className="text-2xl font-bold text-slate-900 mb-6">1. Introduction</h2>
-              <p className="text-slate-600 mb-4 leading-relaxed text-lg">
-                Welcome to Scholarly. We respect your privacy and are committed to protecting your personal data. 
+              <p className="text-slate-600 mb-4 leading-relaxed text-lg"><span>
+                Welcome to <span className="text-brand">Scholarly</span>. We respect your privacy and are committed to protecting your personal data. 
                 This privacy policy will inform you as to how we look after your personal data when you visit our 
                 website and tell you about your privacy rights and how the law protects you.
-              </p>
+              </span></p>
             </section>
 
             <section className="mb-12">
@@ -87,7 +87,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <button 
                 onClick={() => navigate('/contact')}
-                className="bg-[#0a1961] text-white px-8 py-3.5 rounded-lg font-bold text-base hover:bg-blue-900 transition-colors shadow-lg shadow-blue-900/20 cursor-pointer"
+                className="bg-accent text-white px-8 py-3.5 rounded-lg font-bold text-base hover:bg-accent transition-colors shadow-lg shadow-accent/20 cursor-pointer"
               >
                 Contact Support
               </button>

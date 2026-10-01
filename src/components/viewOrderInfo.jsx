@@ -19,7 +19,7 @@ export default function ViewOrderInfo({ order }) {
 
   const statusColors = {
     Pending:    { bg: "#FFF7ED", color: "#9A3412", dot: "#F97316" },
-    Processing: { bg: "#E0F2FE", color: "#0369A1", dot: "#0284C7" },
+    Processing: { bg: "var(--color-accent-100)", color: "var(--color-accent)", dot: "var(--color-accent)" },
     Completed:  { bg: "#EAF3DE", color: "#27500A", dot: "#639922" },
     Cancelled:  { bg: "#FCEBEB", color: "#501313", dot: "#E24B4A" },
 
@@ -65,7 +65,7 @@ export default function ViewOrderInfo({ order }) {
   return (
     <>
       <button
-        className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition cursor-pointer"
+        className="bg-accent text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-accent transition cursor-pointer"
         onClick={() => setIsOpen(true)}
       >
         View Info

@@ -15,9 +15,9 @@ export default function ContactSupportPage() {
 
   const faqs = [
     { q: "How do I get a refund?", a: "Refund requests must be submitted within 7 days of purchase, provided you have not completed more than 20% of the course. Contact us with your order ID." },
-    { q: "Can I access courses offline?", a: "Currently, Scholarly does not support offline access. All course content is streamed online. We are working on an offline mode for mobile." },
+    { q: "Can I access courses offline?", a: <>{"Currently, "}<span className="text-brand">Scholarly</span>{" does not support offline access. All course content is streamed online. We are working on an offline mode for mobile."}</> },
     { q: "How do I become an instructor?", a: "Visit the Instructors page and click 'Apply to Teach'. Our team reviews applications within 5–7 business days." },
-    { q: "Is my payment information secure?", a: "Yes. All payments are processed through PCI-DSS compliant payment gateways. Scholarly does not store your card details." },
+    { q: "Is my payment information secure?", a: <>{"Yes. All payments are processed through PCI-DSS compliant payment gateways. "}<span className="text-brand">Scholarly</span>{" does not store your card details."}</> },
   ];
 
   const channels = [
@@ -45,7 +45,7 @@ export default function ContactSupportPage() {
     <div className="w-full min-h-screen flex flex-col bg-[#f9f9f9]">
       {/* Hero */}
       <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 pt-8 w-full">
-        <div className="relative overflow-hidden bg-gradient-to-br from-[#1e3a8a] via-[#2563eb] to-[#3b82f6] rounded-[32px] px-8 py-16 md:px-16 md:py-20 shadow-lg text-center md:text-left">
+        <div className="relative overflow-hidden bg-gradient-to-br from-accent via-accent to-accent rounded-[32px] px-8 py-16 md:px-16 md:py-20 shadow-lg text-center md:text-left">
           <div className="absolute -top-24 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
           
           <div className="relative z-10">
@@ -54,7 +54,7 @@ export default function ContactSupportPage() {
               Support
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">How can we help?</h1>
-            <p className="text-white/80 text-lg">Our team is here to make your Scholarly experience exceptional.</p>
+            <p className="text-white/80 text-lg"><span>Our team is here to make your <span className="text-brand">Scholarly</span> experience exceptional.</span></p>
           </div>
         </div>
       </div>
@@ -64,11 +64,11 @@ export default function ContactSupportPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {channels.map((c, i) => (
             <div key={i} className="bg-white border border-slate-200 rounded-[24px] p-8 text-center shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 rounded-2xl bg-accent-50 text-accent flex items-center justify-center mx-auto mb-6">
                 {c.icon}
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-1">{c.label}</h3>
-              <div className="text-base font-semibold text-blue-600 mb-2">{c.value}</div>
+              <div className="text-base font-semibold text-accent mb-2">{c.value}</div>
               <p className="text-sm text-slate-500">{c.sub}</p>
             </div>
           ))}
@@ -95,25 +95,25 @@ export default function ContactSupportPage() {
                 <div className="space-y-5">
                   <div>
                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">Full Name</label>
-                    <input required className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all text-slate-900 placeholder-slate-400" name="name" placeholder="Your name" value={form.name} onChange={handleChange} />
+                    <input required className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all text-slate-900 placeholder-slate-400" name="name" placeholder="Your name" value={form.name} onChange={handleChange} />
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">Email Address</label>
-                    <input required className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all text-slate-900 placeholder-slate-400" name="email" type="email" placeholder="you@example.com" value={form.email} onChange={handleChange} />
+                    <input required className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all text-slate-900 placeholder-slate-400" name="email" type="email" placeholder="you@example.com" value={form.email} onChange={handleChange} />
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">Subject</label>
-                    <input className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all text-slate-900 placeholder-slate-400" name="subject" placeholder="What's this about?" value={form.subject} onChange={handleChange} />
+                    <input className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all text-slate-900 placeholder-slate-400" name="subject" placeholder="What's this about?" value={form.subject} onChange={handleChange} />
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">Message</label>
-                    <textarea required className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all text-slate-900 placeholder-slate-400 min-h-[150px] resize-y" name="message" placeholder="Describe your issue or question..." value={form.message} onChange={handleChange} />
+                    <textarea required className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all text-slate-900 placeholder-slate-400 min-h-[150px] resize-y" name="message" placeholder="Describe your issue or question..." value={form.message} onChange={handleChange} />
                   </div>
 
-                  <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-colors mt-4 text-lg">
+                  <button type="submit" className="w-full bg-accent hover:bg-accent text-white font-bold py-4 rounded-xl transition-colors mt-4 text-lg">
                     Send Message →
                   </button>
                 </div>
@@ -130,7 +130,7 @@ export default function ContactSupportPage() {
               {faqs.map((f, i) => (
                 <div key={i} className={`pb-6 ${i !== faqs.length - 1 ? 'border-b border-slate-100' : ''}`}>
                   <h3 className="flex items-start gap-3 text-base font-bold text-slate-900 mb-2">
-                    <span className="flex-shrink-0 w-6 h-6 rounded bg-blue-100 text-blue-600 text-xs font-black flex items-center justify-center mt-0.5">Q</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded bg-accent-100 text-accent text-xs font-black flex items-center justify-center mt-0.5">Q</span>
                     {f.q}
                   </h3>
                   <p className="text-slate-600 leading-relaxed pl-9">

@@ -26,14 +26,14 @@ export default function EnrollCourse({ courseId }) {
   }
   return <div className="space-y-4">
     {state === 'loading' ? <p role="status">Checking course access…</p> :
-      state === 'enrolled' ? <Link className="block text-center rounded-xl bg-blue-600 text-white p-4 font-bold" to={'/course/' + courseId}>Continue Learning</Link> :
-      <button className="w-full rounded-xl bg-blue-600 text-white p-4 font-bold" onClick={() => state === 'guest' ? navigate('/login', { state: { returnTo: '/overview/' + courseId } }) : setOpen(!open)}>Enter Access Code</button>}
+      state === 'enrolled' ? <Link className="block text-center rounded-xl bg-accent text-white p-4 font-bold" to={'/course/' + courseId}>Continue Learning</Link> :
+      <button className="w-full rounded-xl bg-accent text-white p-4 font-bold" onClick={() => state === 'guest' ? navigate('/login', { state: { returnTo: '/overview/' + courseId } }) : setOpen(!open)}>Enter Access Code</button>}
     {state !== 'enrolled' && <p className="text-sm text-slate-500">Lessons are locked. After arranging payment with your instructor, use the course code they provide.</p>}
     {open && <form onSubmit={redeem} className="space-y-3">
       <label className="block text-sm font-semibold" htmlFor="access-code">Course access code</label>
       <input id="access-code" required maxLength={100} autoComplete="off" value={code} onChange={e => setCode(e.target.value)} className="w-full rounded-xl border border-slate-200 p-3 font-mono" placeholder="CRS-…" />
-      <button disabled={busy} className="w-full rounded-xl bg-blue-600 text-white p-3 disabled:opacity-50">{busy ? 'Verifying…' : 'Unlock Course'}</button>
+      <button disabled={busy} className="w-full rounded-xl bg-accent text-white p-3 disabled:opacity-50">{busy ? 'Verifying…' : 'Unlock Course'}</button>
     </form>}
-    {message && <p role="status" className="text-sm text-blue-800 bg-blue-50 rounded-xl p-3">{message}</p>}
+    {message && <p role="status" className="text-sm text-accent bg-accent-50 rounded-xl p-3">{message}</p>}
   </div>;
 }

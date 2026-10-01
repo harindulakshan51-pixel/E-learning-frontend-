@@ -33,25 +33,25 @@ export default function JoinSection() {
 
   return (
     <div className="px-6 py-16 md:px-12 md:py-20 bg-[#f9fbfd] flex justify-center">
-      <div className="w-full max-w-[1400px] bg-gradient-to-br from-[#244ad2] to-[#1e3a9c] rounded-[2.5rem] p-12 md:p-16 text-white flex flex-col lg:flex-row justify-between items-center gap-12 shadow-2xl relative overflow-hidden border border-blue-400/20">
+      <div className="w-full max-w-[1400px] bg-gradient-to-br from-accent to-accent rounded-[2.5rem] p-12 md:p-16 text-white flex flex-col lg:flex-row justify-between items-center gap-12 shadow-2xl relative overflow-hidden border border-accent/20">
         
         {/* Left Side Content */}
         <div className="w-full lg:w-1/2 text-left z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-8 shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-300"></span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-blue-100">Community</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-300"></span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-accent-100">Community</span>
           </div>
 
           <h2 className="text-4xl md:text-[2.75rem] font-black mb-6 leading-[1.1] tracking-tight">
             Join a community of <br className="hidden md:block" /> digital craftsmen.
           </h2>
-          <p className="text-blue-100/90 text-lg md:text-lg mb-10 max-w-md leading-relaxed font-medium">
+          <p className="text-accent-100/90 text-lg md:text-lg mb-10 max-w-md leading-relaxed font-medium">
             From Silicon Valley to London, our students are defining the future of the digital economy.
           </p>
 
           <button
             onClick={() => navigate('/categories')}
-            className="px-8 py-3.5 bg-white text-[#1e3a9c] font-bold text-[15px] rounded-full shadow-lg hover:shadow-xl hover:bg-blue-50 transition-all duration-300 active:scale-95 mb-14 cursor-pointer"
+            className="px-8 py-3.5 bg-white text-accent font-bold text-[15px] rounded-full shadow-lg hover:shadow-xl hover:bg-accent-50 transition-all duration-300 active:scale-95 mb-14 cursor-pointer"
           >
             Explore Courses
           </button>
@@ -65,7 +65,7 @@ export default function JoinSection() {
             ].map((stat, i) => (
               <div key={i} className="flex flex-col relative border-l border-white/10 pl-6 first:border-0 first:pl-0">
                 <span className="text-[2rem] font-black leading-none mb-2 tracking-tight">{stat.value}</span>
-                <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-blue-200/80">{stat.label}</span>
+                <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-accent-200/80">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -79,7 +79,7 @@ export default function JoinSection() {
                 key={i}
                 onClick={() => navigate(`/categories?search=${encodeURIComponent(course.search)}`)}
                 className={`absolute ${course.position} ${course.size} ${course.rotate} 
-                rounded-[1.5rem] overflow-hidden border-4 border-[#244ad2]/80 cursor-pointer 
+                rounded-[1.5rem] overflow-hidden border-4 border-accent/80 cursor-pointer 
                 hover:scale-105 hover:z-50 hover:rotate-0 transition-all duration-500 
                 shadow-2xl group`}
               >

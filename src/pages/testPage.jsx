@@ -106,19 +106,19 @@ export default function Test() {
 
 //                             <div className="flex flex-col justify-center flex-1 pl-6">
 //                                 <h1 className="text-lg font-bold text-slate-800">{item.title}</h1>
-//                                 <p className="text-blue-600 font-semibold">LKR. {item.price.toFixed(2)}</p>
+//                                 <p className="text-accent font-semibold">LKR. {item.price.toFixed(2)}</p>
 //                             </div>
 
 //                             <div className="h-full flex items-center gap-6 pr-8">
 //                                 <div className="flex flex-col items-center gap-1">
-//                                     <BsChevronUp className="text-xl cursor-pointer hover:text-blue-600" 
+//                                     <BsChevronUp className="text-xl cursor-pointer hover:text-accent" 
 //                                     onClick={()=>{
 //                                         const copiedCart = [...cart]
 //                                         compiedCard[index].quantity += 1
 //                                         setCart(copiedCard)
 //                                     }} />
 //                                     <span className="text-lg font-bold">{item.quantity}</span>
-//                                     <BsChevronUp className="text-xl cursor-pointer hover:text-blue-600 rotate-180" 
+//                                     <BsChevronUp className="text-xl cursor-pointer hover:text-accent rotate-180" 
 //                                     onClick={()=>{
 //                                         const copiedCart = [...cart]
 //                                         copiedCard[index].quantity = 1
@@ -136,7 +136,7 @@ export default function Test() {
 //                     ))}
 
 //                     <div className="w-full lg:w-[60%] flex justify-end p-6 bg-white rounded-xl shadow-sm border mt-4">
-//                         <button className="self-center ml-4 px-6 py-3 rounder bg-blue-400 transition">
+//                         <button className="self-center ml-4 px-6 py-3 rounder bg-accent transition">
 //                         Order Now
 //                         </button>
 //                         <span className="pr-4 text-x1 font-bold w-[150px] text-right">
@@ -145,7 +145,7 @@ export default function Test() {
 
 //                         <div className="text-right">
 //                             <p className="text-gray-500">Total Amount:</p>
-//                             <h2 className="text-3xl font-black text-blue-700">
+//                             <h2 className="text-3xl font-black text-accent">
 //                                 LKR. {cart.reduce((acc, cv) => acc + (cv.price * cv.quantity), 0).toFixed(2)}
 //                             </h2>
 //                         </div>
@@ -154,7 +154,7 @@ export default function Test() {
 //             ) : (
 //                 <div className="text-center mt-20">
 //                     <h2 className="text-2xl text-gray-400">Your cart is empty</h2>
-//                     <button onClick={() => window.history.back()} className="mt-4 text-blue-600 font-bold underline">Go Back</button>
+//                     <button onClick={() => window.history.back()} className="mt-4 text-accent font-bold underline">Go Back</button>
 //                 </div>
 //             )}
 //         </div>
@@ -189,14 +189,14 @@ export default function Test() {
 
 //                             <div className="flex flex-col justify-center flex-1 pl-6">
 //                                 <h1 className="text-lg font-bold text-slate-800">{item.title}</h1>
-//                                 <p className="text-blue-600 font-semibold">LKR. {item.price.toFixed(2)}</p>
+//                                 <p className="text-accent font-semibold">LKR. {item.price.toFixed(2)}</p>
 //                             </div>
 
 //                             <div className="h-full flex items-center gap-6 pr-8">
 //                                 <div className="flex flex-col items-center gap-1">
-//                                     <BsChevronUp className="text-xl cursor-pointer hover:text-blue-600" onClick={() => handleUpdateQuantity(item, 1)} />
+//                                     <BsChevronUp className="text-xl cursor-pointer hover:text-accent" onClick={() => handleUpdateQuantity(item, 1)} />
 //                                     <span className="text-lg font-bold">{item.quantity}</span>
-//                                     <BsChevronUp className="text-xl cursor-pointer hover:text-blue-600 rotate-180" onClick={() => handleUpdateQuantity(item, -1)} />
+//                                     <BsChevronUp className="text-xl cursor-pointer hover:text-accent rotate-180" onClick={() => handleUpdateQuantity(item, -1)} />
 //                                 </div>
 //                                 <div className="w-[120px] text-right font-bold text-slate-700">
 //                                     LKR. {(item.price * item.quantity).toFixed(2)}
@@ -208,7 +208,7 @@ export default function Test() {
 //                     <div className="w-full lg:w-[60%] flex justify-end p-6 bg-white rounded-xl shadow-sm border mt-4">
 //                         <div className="text-right">
 //                             <p className="text-gray-500">Total Amount:</p>
-//                             <h2 className="text-3xl font-black text-blue-700">
+//                             <h2 className="text-3xl font-black text-accent">
 //                                 LKR. {cart.reduce((acc, cv) => acc + (cv.price * cv.quantity), 0).toFixed(2)}
 //                             </h2>
 //                         </div>
@@ -217,7 +217,7 @@ export default function Test() {
 //             ) : (
 //                 <div className="text-center mt-20">
 //                     <h2 className="text-2xl text-gray-400">Your cart is empty</h2>
-//                     <button onClick={() => window.history.back()} className="mt-4 text-blue-600 font-bold underline">Go Back</button>
+//                     <button onClick={() => window.history.back()} className="mt-4 text-accent font-bold underline">Go Back</button>
 //                 </div>
 //             )}
 //         </div>
@@ -273,26 +273,26 @@ export default function Test() {
 //       {user?
 //       <>
 //       <div className="h-full w-[300px] bg-[#0F172A] flex flex-col">
-//         <div className="w-[300px] h-[40px] bg-[#0F172A] text-[#60A5FA] border-b-2 border-[#ffffff]/50 flex items-center justify-center">
+//         <div className="w-[300px] h-[40px] bg-[#0F172A] text-accent border-b-2 border-[#ffffff]/50 flex items-center justify-center">
 //           Scholarly
 //         </div>
 //         <div className="h-full w-[300px] bg-[#0F172A] flex flex-col">
-//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-blue-500 rounded-lg transition" to="/admin/">
+//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-accent rounded-lg transition" to="/admin/">
 //             <MdDashboard size={20} /> Dashboard
 //           </Link>
-//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-blue-500 rounded-lg transition" to="/admin/courses">
+//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-accent rounded-lg transition" to="/admin/courses">
 //             <IoCalendarClear size={20} /> Courses
 //           </Link>
-//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-blue-500 rounded-lg transition" to="/admin/videos">
+//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-accent rounded-lg transition" to="/admin/videos">
 //             <BiSolidVideos size={20} /> Videos
 //           </Link>
-//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-blue-500 rounded-lg transition" to="/admin/users">
+//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-accent rounded-lg transition" to="/admin/users">
 //             <FaUsers size={20} /> Users
 //           </Link>
-//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-blue-500 rounded-lg transition" to="/admin/teachers">
+//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-accent rounded-lg transition" to="/admin/teachers">
 //             <GiTeacher size={20} /> Teachers
 //           </Link>
-//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-blue-500 rounded-lg transition" to="/admin/enrollments">
+//           <Link className="h-[50px] my-2 flex items-center gap-3 px-4 text-white bg-[#1E293B] hover:bg-accent rounded-lg transition" to="/admin/enrollments">
 //             <FaBookOpenReader size={20} /> Enrollments
 //           </Link>
 //         </div>

@@ -67,29 +67,31 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div className="bg-white min-h-screen w-full flex items-stretch justify-center">
       
-      <div className="flex w-full max-w-5xl min-h-[700px] bg-white rounded-2xl overflow-hidden shadow-2xl">
+      <div className="flex flex-col md:flex-row w-full min-h-screen bg-white overflow-hidden">
 
         {/* Left Side */}
-        <div className="hidden md:flex w-1/2 bg-blue-600 flex-col justify-between p-12 text-white">
+        <div className="relative flex min-h-32 w-full shrink-0 flex-col justify-between overflow-hidden p-5 text-white md:min-h-screen md:w-1/2 md:p-12">
+          <img src="https://wlbbtprbqprjphegkdtq.supabase.co/storage/v1/object/public/Images/login.jpg" alt="" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <div className="absolute inset-0 bg-slate-950/35" />
           
-          <div className="text-2xl font-black tracking-wide">
-            Scholarly
+          <div className="relative z-10 text-2xl font-black tracking-wide">
+            <span className="text-brand">Scholarly</span>
           </div>
 
-          <div>
+          <div className="relative z-10 mt-8 md:mt-0 max-md:hidden">
             <h1 className="text-5xl font-extrabold mb-6 leading-tight">
               Master your <br/>digital craft.
             </h1>
-            <p className="text-blue-100 text-lg pr-8">
+            <p className="text-accent-100 text-lg pr-8">
               Join a community of artisans and thinkers in a space designed for deep, uninterrupted learning.
             </p>
           </div>
 
-          <div className="bg-white/10 p-5 rounded-xl border border-white/20 backdrop-blur-sm w-fit">
+          <div className="relative z-10 mt-6 w-fit rounded-xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm max-md:hidden">
             <p className="font-bold text-sm">4.9/5 from 2,000+ Students</p>
-            <p className="text-xs text-blue-100 mt-1">
+            <p className="text-xs text-accent-100 mt-1">
               Highly rated for curriculum depth.
             </p>
           </div>
@@ -97,14 +99,14 @@ export default function LoginPage() {
         </div>
 
         {/* Right Side */}
-        <div className="w-full md:w-1/2 flex items-center justify-center p-10 bg-white">
+        <div className="flex w-full flex-1 items-center justify-center bg-white px-5 py-8 md:min-h-screen md:w-1/2 md:p-10">
 
           <div className="w-full max-w-sm">
 
             {/* Toggle Login/SignUp */}
             <div className="flex justify-center mb-10">
               <div className="bg-gray-100 rounded-full p-1 flex w-56">
-                <Link to="/login" className="w-1/2 text-center py-2 rounded-full bg-white shadow-sm text-sm font-bold text-blue-600">
+                <Link to="/login" className="w-1/2 text-center py-2 rounded-full bg-white shadow-sm text-sm font-bold text-accent">
                   Login
                 </Link>
                 <Link to="/register" className="w-1/2 text-center py-2 rounded-full text-sm font-bold text-gray-500 hover:text-gray-700 transition">
@@ -128,7 +130,7 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 placeholder="name@company.com"
-                className="w-full px-4 py-3 bg-gray-50 rounded-xl border border-gray-100 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition text-sm"
+                className="w-full px-4 py-3 bg-gray-50 rounded-xl border border-gray-100 outline-none focus:border-accent focus:ring-1 focus:ring-accent transition text-sm"
               />
             </div>
 
@@ -136,7 +138,7 @@ export default function LoginPage() {
             <div className="mb-6">
               <div className="flex justify-between items-center mb-2">
                 <label htmlFor="login-password" className="block text-xs font-bold text-gray-500 uppercase tracking-wider">Password</label>
-                <Link href="#" className="text-xs font-bold text-blue-600 hover:underline"
+                <Link href="#" className="text-xs font-bold text-accent hover:underline"
                 to = "/forgot-password"
                 >Forgot?</Link>
               </div>
@@ -150,11 +152,11 @@ export default function LoginPage() {
 
             {/* Button */}
             <button 
-              className="w-full bg-blue-600 text-white py-3.5 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+              className="w-full bg-accent text-white py-3.5 rounded-xl font-bold hover:bg-accent transition shadow-lg shadow-accent/30 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
               onClick={login}
               disabled={isLoading}
             >
-              {isLoading ? "Loading..." : "Sign In to Scholarly"}
+              {isLoading ? "Loading..." : <>{"Sign In to Scholarly"}</>}
             </button>
 
             {/* Divider */}
@@ -170,13 +172,13 @@ export default function LoginPage() {
               onClick={googleLogin}
               disabled={isLoading}
             >
-              <GrGoogle className="mr-2 text-lg text-blue-600"/> Google
+              <GrGoogle className="mr-2 text-lg text-accent"/> Google
             </button>
 
             {/* Footer */}
             <p className="text-center text-sm text-gray-500 mt-8">
               Don't have an account?{" "}
-              <Link to="/register" className="text-blue-600 font-bold hover:underline cursor-pointer">
+              <Link to="/register" className="text-accent font-bold hover:underline cursor-pointer">
                 Create an Account
               </Link>
             </p>

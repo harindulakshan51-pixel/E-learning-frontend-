@@ -86,9 +86,9 @@ export default function ProductOverview() {
             {/* Header Section */}
             <Motion.section variants={fadeUpVariant} className="space-y-4">
               <nav className="flex gap-2 text-sm text-gray-500">
-                <span className="hover:text-blue-600 cursor-pointer" onClick={() => navigate("/")}>Course Catalog</span>
+                <span className="hover:text-accent cursor-pointer" onClick={() => navigate("/")}>Course Catalog</span>
                 <span>/</span>
-                <span className="hover:text-blue-600 cursor-pointer">{course.category || "General"}</span>
+                <span className="hover:text-accent cursor-pointer">{course.category || "General"}</span>
                 <span>/</span>
                 <span className="text-gray-900 truncate max-w-[200px] inline-block align-bottom font-medium">{course.title}</span>
               </nav>
@@ -135,7 +135,7 @@ export default function ProductOverview() {
                   "Developing a professional mindset and workflow.",
                 ].map((item, i) => (
                   <div key={i} className="flex gap-3">
-                    <span className="text-blue-600 font-bold">✓</span>
+                    <span className="text-accent font-bold">✓</span>
                     <p className="text-gray-600 text-sm font-medium">{item}</p>
                   </div>
                 ))}
@@ -190,7 +190,7 @@ export default function ProductOverview() {
                         "Certificate of completion"
                       ].map(item => (
                         <li key={item} className="flex items-center gap-3 text-sm font-medium text-gray-600">
-                          <span className="text-blue-500 text-lg leading-none">✓</span>{item}
+                          <span className="text-accent text-lg leading-none">✓</span>{item}
                         </li>
                       ))}
                     </ul>

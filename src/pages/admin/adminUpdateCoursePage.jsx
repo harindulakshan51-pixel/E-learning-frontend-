@@ -88,7 +88,7 @@ export default function AdminUpdateCoursePage() {
 
     return (
         <div className="w-full min-h-screen flex justify-center items-center bg-gray-50 p-6">
-            <div className="w-full max-w-6xl bg-[#f4f7fc] border border-blue-100 rounded-xl p-8 shadow-sm">
+            <div className="w-full max-w-6xl bg-[#f4f7fc] border border-accent-100 rounded-xl p-8 shadow-sm">
 
                 <h1 className="text-[#1a365d] font-bold text-xl mb-8">
                     Update Course
@@ -134,7 +134,7 @@ export default function AdminUpdateCoursePage() {
                         <button
                             onClick={handleSubmit}
                             disabled={uploading}
-                            className="px-6 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50"
+                            className="px-6 py-2 bg-accent text-white rounded-lg disabled:opacity-50"
                         >
                             {uploading ? "Uploading..." : "Update Course"}
                         </button>

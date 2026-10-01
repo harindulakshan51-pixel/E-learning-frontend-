@@ -37,18 +37,18 @@ export default function AdminCoursePage() {
         <div className="flex items-center gap-3">
           {/* Search Bar (UI Only) */}
           <div className="relative group hidden sm:block">
-            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors" size={18} />
+            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-accent transition-colors" size={18} />
             <input 
               type="text" 
               placeholder="Search courses..." 
-              className="pl-10 pr-4 py-2.5 w-full md:w-64 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm"
+              className="pl-10 pr-4 py-2.5 w-full md:w-64 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all shadow-sm"
             />
           </div>
 
           {/* Add Course Button */}
           <Link
             to="/admin/add-course"
-            className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-xl font-medium shadow-lg shadow-blue-600/30 hover:bg-blue-700 hover:shadow-blue-600/40 transition-all duration-300 hover:-translate-y-0.5"
+            className="flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-xl font-medium shadow-lg shadow-accent/30 hover:bg-accent hover:shadow-accent/40 transition-all duration-300 hover:-translate-y-0.5"
           >
             <BiPlus size={20} />
             Add Course
@@ -178,7 +178,7 @@ export default function AdminCoursePage() {
                       <td className="px-6 py-4 text-center">
                         <div className="flex items-center justify-center gap-2 opacity-90 group-hover:opacity-100 transition-opacity">
                           <button
-                            className="text-xs font-semibold bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white px-3 py-2 rounded-lg transition-colors duration-200 shadow-sm"
+                            className="text-xs font-semibold bg-accent-50 text-accent hover:bg-accent hover:text-white px-3 py-2 rounded-lg transition-colors duration-200 shadow-sm"
                             onClick={() => navigate("/admin/update-course", { state: item })}
                           >
                             Edit

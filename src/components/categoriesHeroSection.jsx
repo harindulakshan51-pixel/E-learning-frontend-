@@ -29,7 +29,7 @@ export default function CategoriesHeroSection({ query }) {
     return (
         <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 mt-1">
             <div className="relative overflow-hidden rounded-[2.5rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10"
-                style={{ background: 'linear-gradient(135deg, #2563eb 0%, #4f46e5 60%, #6d28d9 100%)' }}>
+                style={{ background: 'linear-gradient(135deg, var(--color-accent) 0%, #4f46e5 60%, #6d28d9 100%)' }}>
 
                 {/* Soft light orb top right */}
                 <div className="absolute top-[-20%] right-[-5%] w-[350px] h-[350px] rounded-full -z-0"
@@ -44,10 +44,10 @@ export default function CategoriesHeroSection({ query }) {
                     <div className="mb-5 flex items-center gap-2 px-4 py-1.5 rounded-full border"
                         style={{ background: 'rgba(255,255,255,0.12)', borderColor: 'rgba(255,255,255,0.2)' }}>
                         <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-200 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-100"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-200 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-100"></span>
                         </span>
-                        <span className="text-xs font-bold uppercase tracking-widest text-blue-100">Expert-Led Courses</span>
+                        <span className="text-xs font-bold uppercase tracking-widest text-accent-100">Expert-Led Courses</span>
                     </div>
 
                     {/* Title */}
@@ -58,7 +58,7 @@ export default function CategoriesHeroSection({ query }) {
 
                     {/* Subtext */}
                     <p className="text-base md:text-lg leading-relaxed font-medium"
-                        style={{ color: 'rgba(219,234,254,0.85)', maxWidth: '420px' }}>
+                        style={{ color: 'color-mix(in srgb, var(--color-accent-100) 85%, transparent)', maxWidth: '420px' }}>
                         Master the world's most in-demand skills with{' '}
                         <span className="text-white font-semibold">industry-leading</span>{' '}
                         mentors and real-world projects.

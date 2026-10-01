@@ -107,7 +107,7 @@ export default function AdminAddCoursePage() {
                             placeholder="e.g. CRS-101"
                             value={courseId}
                             onChange={(e) => setCourseId(e.target.value)}
-                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all"
+                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent focus:bg-white transition-all"
                         />
                     </div>
 
@@ -118,7 +118,7 @@ export default function AdminAddCoursePage() {
                             placeholder="Enter course title"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
-                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all"
+                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent focus:bg-white transition-all"
                         />
                     </div>
 
@@ -129,7 +129,7 @@ export default function AdminAddCoursePage() {
                             placeholder="e.g. Programming, Design"
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
-                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all"
+                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent focus:bg-white transition-all"
                         />
                     </div>
 
@@ -140,7 +140,7 @@ export default function AdminAddCoursePage() {
                             placeholder="Enter instructor's name"
                             value={instructor}
                             onChange={(e) => setInstructor(e.target.value)}
-                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all"
+                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent focus:bg-white transition-all"
                         />
                     </div>
 
@@ -152,7 +152,7 @@ export default function AdminAddCoursePage() {
                             placeholder="0.00"
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
-                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all"
+                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent focus:bg-white transition-all"
                         />
                     </div>
 
@@ -163,7 +163,7 @@ export default function AdminAddCoursePage() {
                             placeholder="Discounted from"
                             value={labelledPrice}
                             onChange={(e) => setLabelledPrice(e.target.value)}
-                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all"
+                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent focus:bg-white transition-all"
                         />
                     </div>
 
@@ -174,16 +174,16 @@ export default function AdminAddCoursePage() {
                             placeholder="e.g. 5h 30m"
                             value={duration}
                             onChange={(e) => setDuration(e.target.value)}
-                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all"
+                            className="w-full border border-slate-200 bg-slate-50/50 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent focus:bg-white transition-all"
                         />
                     </div>
 
                     {/* Image Upload */}
                     <div className="flex flex-col gap-1.5">
                         <label className="text-sm font-semibold text-slate-700">Course Thumbnail</label>
-                        <div className="relative border-2 border-dashed border-slate-300 bg-slate-50 hover:bg-slate-100 hover:border-blue-400 transition-colors rounded-xl p-3 flex items-center gap-3">
+                        <div className="relative border-2 border-dashed border-slate-300 bg-slate-50 hover:bg-slate-100 hover:border-accent transition-colors rounded-xl p-3 flex items-center gap-3">
                             <div className="bg-white p-2 rounded-lg shadow-sm border border-slate-200">
-                                <FiUploadCloud className="text-blue-500" size={20} />
+                                <FiUploadCloud className="text-accent" size={20} />
                             </div>
                             <input
                                 type="file"
@@ -204,7 +204,7 @@ export default function AdminAddCoursePage() {
                             placeholder="Write a detailed description about the course..."
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            className="w-full border border-slate-200 bg-slate-50/50 p-4 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all min-h-[120px] resize-y"
+                            className="w-full border border-slate-200 bg-slate-50/50 p-4 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent focus:bg-white transition-all min-h-[120px] resize-y"
                         />
                     </div>
                 </div>
@@ -221,7 +221,7 @@ export default function AdminAddCoursePage() {
                                 checked={isAvailable}
                                 onChange={(e) => setIsAvailable(e.target.checked)}
                             />
-                            <div className={`block w-12 h-7 rounded-full transition-colors ${isAvailable ? 'bg-blue-500' : 'bg-slate-300'}`}></div>
+                            <div className={`block w-12 h-7 rounded-full transition-colors ${isAvailable ? 'bg-accent' : 'bg-slate-300'}`}></div>
                             <div className={`dot absolute left-1 top-1 bg-white w-5 h-5 rounded-full transition-transform ${isAvailable ? 'transform translate-x-5' : ''}`}></div>
                         </div>
                         <span className="text-sm font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">
@@ -240,7 +240,7 @@ export default function AdminAddCoursePage() {
                         <button
                             onClick={handleSubmit}
                             disabled={uploading}
-                            className="flex-1 sm:flex-none px-8 py-2.5 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30 transition-all disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+                            className="flex-1 sm:flex-none px-8 py-2.5 bg-accent text-white font-medium rounded-xl hover:bg-accent hover:shadow-lg hover:shadow-accent/30 transition-all disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center gap-2"
                         >
                             {uploading ? (
                                 <>

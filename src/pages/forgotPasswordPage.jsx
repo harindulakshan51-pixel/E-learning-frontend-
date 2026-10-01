@@ -64,7 +64,7 @@ export default function ForgetPasswordPage() {
           <input
             type="text"
             placeholder="Enter OTP"
-            className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-blue-500"
+            className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-accent"
             value={otp} 
             onChange={(e) => setOtp(e.target.value)}
             autoComplete="off" 
@@ -73,7 +73,7 @@ export default function ForgetPasswordPage() {
           <input
             type="password"
             placeholder="Enter New Password"
-            className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-blue-500"
+            className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-accent"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
           />
@@ -81,14 +81,14 @@ export default function ForgetPasswordPage() {
           <input
             type="password"
             placeholder="Confirm New Password"
-            className="w-full p-2 mb-6 border border-gray-300 rounded focus:outline-blue-500"
+            className="w-full p-2 mb-6 border border-gray-300 rounded focus:outline-accent"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
 
           <button
             onClick={resetPassword}
-            className="w-full bg-blue-600 text-white p-2 rounded font-semibold hover:bg-blue-700 transition-all"
+            className="w-full bg-accent text-white p-2 rounded font-semibold hover:bg-accent transition-all"
           >
             Reset Password
           </button>
@@ -100,14 +100,14 @@ export default function ForgetPasswordPage() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="w-full p-2 mb-6 border border-gray-300 rounded focus:outline-blue-500"
+            className="w-full p-2 mb-6 border border-gray-300 rounded focus:outline-accent"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
           <button
             onClick={sendOtp}
-            className="w-full bg-blue-600 text-white p-2 rounded font-semibold hover:bg-blue-700 transition-all"
+            className="w-full bg-accent text-white p-2 rounded font-semibold hover:bg-accent transition-all"
           >
             Send OTP
           </button>
