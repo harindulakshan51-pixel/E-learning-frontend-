@@ -5,7 +5,8 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/loader";
 import PasswordInput from "../components/PasswordInput";
-import { GrGoogle } from "react-icons/gr";
+import AuthFormPanel from "../components/AuthFormPanel";
+import { FcGoogle } from "react-icons/fc";
 import { useGoogleLogin } from '@react-oauth/google';
 
 export default function LoginPage() {
@@ -67,24 +68,24 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="bg-white min-h-screen w-full flex items-stretch justify-center">
+    <div className="auth-page bg-white min-h-screen w-full flex items-stretch justify-center">
       
       <div className="flex flex-col md:flex-row w-full min-h-screen bg-white overflow-hidden">
 
         {/* Left Side */}
-        <div className="relative flex min-h-32 w-full shrink-0 flex-col justify-between overflow-hidden p-5 text-white md:min-h-screen md:w-1/2 md:p-12">
+        <div className="auth-photo-panel">
           <img src="https://wlbbtprbqprjphegkdtq.supabase.co/storage/v1/object/public/Images/login.jpg" alt="" className="absolute inset-0 h-full w-full object-cover object-center" />
-          <div className="absolute inset-0 bg-slate-950/35" />
+          <div className="auth-photo-panel__shade" />
           
           <div className="relative z-10 text-2xl font-black tracking-wide">
-            <span className="text-brand">Scholarly</span>
+            <span className="text-white">Scholarly</span>
           </div>
 
-          <div className="relative z-10 mt-8 md:mt-0 max-md:hidden">
+          <div className="auth-photo-panel__copy">
             <h1 className="text-5xl font-extrabold mb-6 leading-tight">
               Master your <br/>digital craft.
             </h1>
-            <p className="text-accent-100 text-lg pr-8">
+            <p className="text-white/90">
               Join a community of artisans and thinkers in a space designed for deep, uninterrupted learning.
             </p>
           </div>
@@ -99,7 +100,7 @@ export default function LoginPage() {
         </div>
 
         {/* Right Side */}
-        <div className="flex w-full flex-1 items-center justify-center bg-white px-5 py-8 md:min-h-screen md:w-1/2 md:p-10">
+        <AuthFormPanel>
 
           <div className="w-full max-w-sm">
 
@@ -172,7 +173,7 @@ export default function LoginPage() {
               onClick={googleLogin}
               disabled={isLoading}
             >
-              <GrGoogle className="mr-2 text-lg text-accent"/> Google
+              <FcGoogle className="mr-2 text-lg"/> Google
             </button>
 
             {/* Footer */}
@@ -184,7 +185,7 @@ export default function LoginPage() {
             </p>
           </div>
 
-        </div>
+        </AuthFormPanel>
 
       </div>
       {isLoading && <Loader />}

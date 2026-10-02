@@ -30,7 +30,7 @@ export default function ForgetPasswordPage() {
       navigate("/login");
     } catch (err) {
       console.log(err);
-      toast.error("Error resetting password. Try again later.");
+      toast.error(err.response?.data?.message || "Error resetting password. Try again later.");
       setLoading(false);
     }
   }
@@ -48,7 +48,7 @@ export default function ForgetPasswordPage() {
       setOtpSent(true);
     } catch (err) {
       console.log(err);
-      toast.error("Error sending OTP. Try again later");
+      toast.error(err.response?.data?.message || "Error sending OTP. Try again later");
       setLoading(false);
     }
   }

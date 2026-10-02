@@ -25,7 +25,7 @@ export default function Footer() {
           <h4 className="font-bold text-[#0a1128] uppercase text-xs tracking-[0.15em]">Platform</h4>
           <Link to="/categories" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">Course Catalog</Link>
           <Link to="/myLearning" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">My Courses</Link>
-          <Link to="/instructors" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">Instructors</Link>
+          {/* <Link to="/instructors" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">Instructors</Link> */}
           <Link to="/about" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">About Us</Link>
         </div>
 
