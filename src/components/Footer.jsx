@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Footer() {
+export default function Footer({ variant }) {
   return (
-    <footer className="bg-[#f9fbfd] pt-20 pb-10 px-8 border-t border-[#e2e8f0]">
+    <footer className={`${variant === "home" ? "home-footer " : ""}bg-[#f9fbfd] pt-20 pb-10 px-8 border-t border-[#e2e8f0]`}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         {/* Brand Section */}
         <div className="col-span-1 md:col-span-2">

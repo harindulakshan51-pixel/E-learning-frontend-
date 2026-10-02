@@ -2,7 +2,7 @@ import { DEFAULT_COURSE_IMAGE } from '../utils/images';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion as Motion } from 'framer-motion'; // <-- Added Framer Motion
 
-export default function CourseCard({ course }) {
+export default function CourseCard({ course, variant }) {
   const navigate = useNavigate();
 
   if (!course) return null;
@@ -15,7 +15,7 @@ export default function CourseCard({ course }) {
 
   return (
     // Motion div for Framer Motion, h-full to keep height equal inside grid
-    <Motion.div variants={cardVariant} className="h-full">
+    <Motion.div variants={cardVariant} className={variant === "home" ? "home-course-card h-full" : "h-full"}>
       <div 
         // Added 'h-full' to the standard Tailwind classes to ensure all cards stretch evenly 
         className="group bg-white rounded-3xl p-5 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col cursor-pointer border border-gray-100 w-full h-full max-w-[380px]"

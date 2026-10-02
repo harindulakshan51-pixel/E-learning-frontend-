@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "../components/header";
 import LoginPage from "./loginPage";
 import RegisterPage from "./registerPage";
@@ -16,6 +16,7 @@ import PrivacyPolicyPage from "./PrivacyPolicyPage";
 import ContactSupportPage from "./ContactSupportPage";
 
 export default function Homepage() {
+  const { pathname } = useLocation();
   return (
     <div className="min-h-screen w-full flex flex-col bg-white">
       <Header />
@@ -38,7 +39,7 @@ export default function Homepage() {
           </Routes>
         </div>
       </main>
-      <Footer />
+      <Footer variant={pathname === "/" ? "home" : undefined} />
     </div>
   );
 }

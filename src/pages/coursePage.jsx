@@ -6,6 +6,7 @@ import Loader from "../components/loader";
 import CourseCard from "../components/courseCard";
 import HeroSection from "../components/heroSection";
 import JoinSection from "../components/JoinSection";
+import "./homepage-design.css";
 
 export default function CoursePage() {
     const [products, setProducts] = useState([]);
@@ -69,24 +70,24 @@ export default function CoursePage() {
             </Motion.div>
 
             {/* Curriculum Section */}
-            <section className="relative overflow-hidden bg-gradient-to-b from-[#f1f4f9] to-[#e8ebf2] py-16 md:py-24">
+            <section className="home-curriculum">
                 
                 {/* Abstract Decoration */}
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
+                <div className="home-curriculum__decoration" aria-hidden="true">
                     <div className="absolute -top-24 -left-24 w-96 h-96 border-[40px] border-accent/10 rounded-full"></div>
                     <div className="absolute top-1/2 -right-48 w-[500px] h-[500px] bg-gradient-to-br from-accent/20 to-transparent rounded-full blur-3xl"></div>
                 </div>
 
-                <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 relative z-10">
+                <div className="home-content">
                     
                     {/* Header Part with Scrolling Animation */}
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8 overflow-hidden">
+                    <div className="home-curriculum__header">
                         <Motion.div
                             variants={fadeLeftVariant}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
-                            className="max-w-2xl"
+                            className="home-curriculum__intro"
                         >
                             <div className="flex items-center gap-3 mb-5">
                                 <div className="h-1 w-10 bg-accent rounded-full"></div>
@@ -113,7 +114,7 @@ export default function CoursePage() {
                         >
                             <Link 
                                 to="/categories" 
-                                className="group inline-flex items-center gap-3 bg-white px-7 py-3.5 rounded-full shadow-sm border border-[#e2e8f0] hover:border-accent/30 transition-all duration-300 hover:shadow-md active:scale-95"
+                                className="home-catalog-link group"
                             >
                                 <span className="font-bold text-accent text-[15px]">
                                     Explore Full Catalog
@@ -138,12 +139,12 @@ export default function CoursePage() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.1 }}
-                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10"
+                        className="home-course-grid"
                     >
                         {products.slice(0, 4).map((item) => (
                             <CourseCard
                                 key={item.courseId || item._id}
-                                course={item} 
+                                course={item} variant="home"
                             />
                         ))}
                     </Motion.div>
