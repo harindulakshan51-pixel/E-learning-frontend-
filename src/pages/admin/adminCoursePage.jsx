@@ -185,7 +185,7 @@ export default function AdminCoursePage() {
                           </button>
                           
                           {/* CourseDeleteButton component (Ensure it has modern styles inside its own file if needed) */}
-                          <CourseDeleteButton courseId={item.courseId} reload={() => { setloaded(false) }} />
+                          <CourseDeleteButton courseId={item.courseId} reload={() => { setProducts(current => current.filter(c => c.courseId !== item.courseId)); }} />
                         </div>
                       </td>
                     </tr>

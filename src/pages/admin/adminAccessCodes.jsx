@@ -5,6 +5,9 @@ export default function AdminAccessCodes() {
   const [codes, setCodes] = useState(null);
   const [form, setForm] = useState({ courseId: '', assignedEmail: '', expiresAt: '' });
   const [issued, setIssued] = useState('');
+  const [visibleKeys, setVisibleKeys] = useState({});
+  const [loadingKeys, setLoadingKeys] = useState({});
+  const [keyErrors, setKeyErrors] = useState({});
   const [message, setMessage] = useState('');
   const [expiryError, setExpiryError] = useState('');
   const [busy, setBusy] = useState(false);
@@ -25,6 +28,31 @@ export default function AdminAccessCodes() {
       const { data } = await api.post('/access-codes', { ...form, expiresAt: expiry?.toISOString() });
       setIssued(data.code); setMessage(data.message);
       setCodes((await api.get('/access-codes')).data);
+    } catch (error) { setMessage(errorMessage(error)); } finally { setBusy(false); }
+  }
+  async function toggleKey(id) {
+    if (visibleKeys[id]) {
+      setVisibleKeys(keys => { const next = { ...keys }; delete next[id]; return next; });
+      return;
+    }
+    setLoadingKeys(keys => ({ ...keys, [id]: true }));
+    setKeyErrors(errors => ({ ...errors, [id]: '' }));
+    try {
+      const { data } = await api.get('/access-codes/' + id + '/key');
+      setVisibleKeys(keys => ({ ...keys, [id]: data.code }));
+    } catch (error) {
+      setKeyErrors(errors => ({ ...errors, [id]: errorMessage(error) }));
+    } finally { setLoadingKeys(keys => ({ ...keys, [id]: false })); }
+  }
+  async function deleteCode() {
+    setBusy(true);
+    try {
+      const { data } = await api.delete('/access-codes/' + target._id);
+      setCodes(rows => rows.filter(row => row._id !== target._id));
+      setVisibleKeys(keys => { const next = { ...keys }; delete next[target._id]; return next; });
+      setIssued('');
+      setMessage(data.message);
+      setTarget(null);
     } catch (error) { setMessage(errorMessage(error)); } finally { setBusy(false); }
   }
   async function revoke() {
@@ -54,8 +82,15 @@ export default function AdminAccessCodes() {
     </form>
     {message && <p role="status" className="my-5 p-4 bg-accent-50 text-accent rounded-xl">{message}</p>}
     {issued && <div className="my-5 border border-accent-200 bg-white p-6 rounded-xl"><p className="font-semibold mb-3">Copy now and send privately to your student</p><code className="break-all text-accent text-lg">{issued}</code><div className="mt-4 flex gap-4"><button onClick={() => navigator.clipboard.writeText(issued).then(() => setMessage('Code copied')).catch(() => setMessage('Select and copy the code above.'))} className="text-accent font-bold">Copy code</button><button onClick={() => setIssued('')} className="text-slate-500">Hide code</button></div></div>}
-    {target && <div role="alertdialog" aria-label="Confirm code revocation" className="my-5 p-6 rounded-xl border border-red-200 bg-red-50"><p>Revoke code ending {target.hint} and the enrollment it granted?</p><button disabled={busy} onClick={revoke} className="bg-red-600 text-white px-4 py-2 rounded-lg mt-3 mr-3">Revoke access</button><button onClick={() => setTarget(null)}>Cancel</button></div>}
+    {target && <div role="alertdialog" aria-label={target.status === 'revoked' ? 'Confirm code deletion' : 'Confirm code revocation'} className="my-5 p-6 rounded-xl border border-red-200 bg-red-50"><p>{target.status === 'revoked' ? `Permanently delete revoked code ending ${target.hint}?` : `Revoke code ending ${target.hint} and the enrollment it granted?`}</p><button disabled={busy} onClick={target.status === 'revoked' ? deleteCode : revoke} className="bg-red-600 text-white px-4 py-2 rounded-lg mt-3 mr-3 disabled:opacity-50">{busy ? 'Working…' : target.status === 'revoked' ? 'Delete code' : 'Revoke access'}</button><button disabled={busy} onClick={() => setTarget(null)}>Cancel</button></div>}
     <input aria-label="Search access codes" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search course, student, status or code ending…" className="my-6 p-3 rounded-xl border border-slate-200 w-full max-w-lg bg-white" />
-    {!codes ? <p role="status">{message ? 'Codes could not be loaded.' : 'Loading access codes…'}</p> : <div className="overflow-x-auto bg-white rounded-2xl border border-slate-200"><table className="w-full text-sm text-left"><thead className="bg-slate-50 text-slate-500"><tr>{['Course ID', 'Code ending', 'Student', 'Status', 'Expiry', 'Actions'].map(t => <th className="p-4" key={t}>{t}</th>)}</tr></thead><tbody>{codes.filter(c => [c.courseId, c.assignedEmail, c.redeemedBy, c.status, c.hint].join(' ').toLowerCase().includes(search.toLowerCase())).map(c => <tr key={c._id} className="border-t border-slate-100"><td className="p-4 font-mono">{c.courseId}</td><td className="p-4 font-mono">…{c.hint}</td><td className="p-4">{c.redeemedBy || c.assignedEmail || 'Unassigned'}{c.redeemedAt && <small className="block text-slate-400">Redeemed {new Date(c.redeemedAt).toLocaleString()}</small>}</td><td className="p-4"><span className="bg-accent-50 text-accent rounded-full px-3 py-1">{c.status}</span></td><td className="p-4">{c.expiresAt ? new Date(c.expiresAt).toLocaleString() : 'No expiry'}</td><td className="p-4">{c.status !== 'revoked' && <button onClick={() => setTarget(c)} className="text-red-600 font-semibold">Revoke</button>}</td></tr>)}</tbody></table>{codes.length === 0 && <p className="p-10 text-center text-slate-500">No access codes yet. Generate your first code above.</p>}</div>}
+    {!codes ? <p role="status">{message ? 'Codes could not be loaded.' : 'Loading access codes…'}</p> : <div className="overflow-x-auto bg-white rounded-2xl border border-slate-200"><table className="w-full text-sm text-left"><thead className="bg-slate-50 text-slate-500"><tr>{['Course ID', 'Access key', 'Student', 'Status', 'Expiry', 'Actions'].map(t => <th className="p-4" key={t}>{t}</th>)}</tr></thead><tbody>{codes.filter(c => [c.courseId, c.assignedEmail, c.redeemedBy, c.status, c.hint].join(' ').toLowerCase().includes(search.toLowerCase())).map(c => <tr key={c._id} className="border-t border-slate-100"><td className="p-4 font-mono">{c.courseId}</td><td className="p-4">
+      <code id={`key-${c._id}`} className="block break-all">{visibleKeys[c._id] || `…${c.hint}`}</code>
+      <div className="flex gap-3 mt-2">
+        <button type="button" disabled={loadingKeys[c._id]} aria-expanded={Boolean(visibleKeys[c._id])} aria-controls={`key-${c._id}`} onClick={() => toggleKey(c._id)} className="text-accent font-semibold whitespace-nowrap disabled:opacity-50">{loadingKeys[c._id] ? 'Loading…' : visibleKeys[c._id] ? 'Hide key' : 'View key'}</button>
+        {visibleKeys[c._id] && <button type="button" onClick={() => navigator.clipboard.writeText(visibleKeys[c._id]).then(() => setMessage('Key copied')).catch(() => setMessage('Select and copy the key in the table.'))} className="text-accent font-semibold whitespace-nowrap">Copy key</button>}
+      </div>
+      {keyErrors[c._id] && <p role="alert" className="mt-2 text-xs text-red-600 max-w-xs">{keyErrors[c._id]}</p>}
+    </td><td className="p-4">{c.redeemedBy || c.assignedEmail || 'Unassigned'}{c.redeemedAt && <small className="block text-slate-400">Redeemed {new Date(c.redeemedAt).toLocaleString()}</small>}</td><td className="p-4"><span className="bg-accent-50 text-accent rounded-full px-3 py-1">{c.status}</span></td><td className="p-4">{c.expiresAt ? new Date(c.expiresAt).toLocaleString() : 'No expiry'}</td><td className="p-4"><button type="button" disabled={busy} onClick={() => setTarget(c)} className="text-red-600 font-semibold disabled:opacity-50">{c.status === 'revoked' ? 'Delete' : 'Revoke'}</button></td></tr>)}</tbody></table>{codes.length === 0 && <p className="p-10 text-center text-slate-500">No access codes yet. Generate your first code above.</p>}</div>}
   </main>;
 }

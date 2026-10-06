@@ -125,7 +125,7 @@ export default function ProductOverview() {
             </Motion.section>
 
             {/* What you'll learn Section */}
-            <Motion.section variants={fadeUpVariant} className="bg-gray-50 p-8 rounded-3xl space-y-6">
+            {/* <Motion.section variants={fadeUpVariant} className="bg-gray-50 p-8 rounded-3xl space-y-6">
               <h2 className="text-2xl font-bold text-gray-900">What you'll learn</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
@@ -140,10 +140,10 @@ export default function ProductOverview() {
                   </div>
                 ))}
               </div>
-            </Motion.section>
+            </Motion.section> */}
 
             {/* Course Content Section */}
-            <Motion.section variants={fadeUpVariant} className="space-y-6">
+            {/* <Motion.section variants={fadeUpVariant} className="space-y-6">
               <div className="flex justify-between items-end">
                 <h2 className="text-2xl font-bold text-gray-900">Course Content</h2>
                 <span className="text-sm text-gray-500 font-semibold">{course.duration || "12h 45m"} total length</span>
@@ -158,7 +158,7 @@ export default function ProductOverview() {
                   </div>
                 ))}
               </div>
-            </Motion.section>
+            </Motion.section> */}
           </div>
 
           {/* Sticky Sidebar Section */}

@@ -21,7 +21,7 @@ export default function CourseDeleteButton({ courseId, reload }) {
         }
       );
 
-      toast.success("Product Deleted Successfully");
+      toast.success("Course deleted successfully");
 
       setIsDeleting(false);
       setIsMessageOpen(false);
@@ -29,7 +29,7 @@ export default function CourseDeleteButton({ courseId, reload }) {
       reload(); // refresh table
     } catch (err) {
       console.log(err);
-      toast.error("Product Delete failed");
+      toast.error("Course deletion failed");
       setIsDeleting(false);
     }
   }
