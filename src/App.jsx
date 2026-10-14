@@ -11,8 +11,10 @@ import { Toaster } from 'react-hot-toast';
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
 function App() {
+  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID ;
+
   return (
-    <GoogleOAuthProvider clientId="874229958487-1o5a99ijvvvniqhqfohdq27oceqlq0u9.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId={googleClientId}>
       <div className="min-h-screen w-full bg-[#FFFFFF] overflow-x-hidden">  
         <Toaster position='top-right'/>
         <Routes>
