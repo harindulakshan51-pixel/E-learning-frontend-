@@ -23,8 +23,8 @@ export default function AdminEnrollments() {
     } catch (e) { setMessage(errorMessage(e)); } finally { setBusy(false); }
   }
   const field = (name, value) => setFilters({ ...filters, [name]: value });
-  return <main className="p-5 md:p-10">
-    <h1 className="text-3xl font-extrabold text-slate-900">Enrollments</h1><p className="text-slate-500 mt-2 mb-8">Explore students and courses, review legacy access, and manage enrollments.</p>
+  return <main className="p-4 sm:p-6 md:p-10">
+    <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Enrollments</h1><p className="text-slate-500 mt-1 sm:mt-2 mb-6 sm:mb-8 text-xs sm:text-sm">Explore students and courses, review legacy access, and manage enrollments.</p>
     <div className="grid sm:grid-cols-2 xl:grid-cols-5 gap-4 mb-6">
       <label className="text-sm">Student or course<input value={filters.search} onChange={e => field('search', e.target.value)} placeholder="Name, email or Course ID" className="w-full mt-2 p-3 rounded-xl border border-slate-200 bg-white" /></label>
       <label className="text-sm">Course<select value={filters.courseId} onChange={e => field('courseId', e.target.value)} className="w-full mt-2 p-3 rounded-xl border border-slate-200 bg-white"><option value="">All courses</option>{courses.map(c => <option key={c.courseId} value={c.courseId}>{c.title} · {c.courseId}</option>)}</select></label>

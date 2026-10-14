@@ -60,9 +60,9 @@ export default function AdminAccessCodes() {
     try { const { data } = await api.post('/access-codes/' + target._id + '/revoke'); setMessage(data.message); setTarget(null); setCodes((await api.get('/access-codes')).data); }
     catch (e) { setMessage(errorMessage(e)); } finally { setBusy(false); }
   }
-  return <main className="p-5 md:p-10 max-w-7xl mx-auto">
-    <h1 className="text-3xl font-extrabold text-slate-900">Access Codes</h1><p className="text-slate-500 mt-2 mb-8"><span>Issue one code per student after confirming payment outside <span className="text-brand">Scholarly</span>.</span></p>
-    <form onSubmit={issue} className="bg-white rounded-2xl border border-slate-200 p-6 grid md:grid-cols-3 gap-5 shadow-sm">
+  return <main className="p-4 sm:p-6 md:p-10 max-w-7xl mx-auto">
+    <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Access Codes</h1><p className="text-slate-500 mt-1 sm:mt-2 mb-6 sm:mb-8 text-xs sm:text-sm"><span>Issue one code per student after confirming payment outside <span className="text-brand">Scholarly</span>.</span></p>
+    <form onSubmit={issue} className="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 shadow-sm">
       <label className="text-sm font-semibold">Course ID<select required value={form.courseId} onChange={e => setForm({ ...form, courseId: e.target.value })} className="block w-full p-3 border border-slate-200 rounded-xl mt-2"><option value="">Select a course</option>{courses.filter(c => c.isAvailable).map(c => <option key={c.courseId} value={c.courseId}>{c.courseId} · {c.title}</option>)}</select></label>
       <label className="text-sm font-semibold">Assign to student email (recommended)<input type="email" value={form.assignedEmail} onChange={e => setForm({ ...form, assignedEmail: e.target.value })} className="block w-full p-3 border border-slate-200 rounded-xl mt-2" placeholder="Registered student email" /></label>
       <div>

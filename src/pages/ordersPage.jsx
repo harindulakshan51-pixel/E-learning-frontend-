@@ -31,10 +31,10 @@ export default function OrdersPage() {
   }, []); 
 
   return (
-    <div className="w-full min-h-screen bg-[#f8fafc] p-6 lg:p-10 flex flex-col font-sans">
-      <div className="mb-8">
-        <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">My Purchases</h1>
-        <p className="text-slate-500 mt-1 text-sm">view purchases history and find approve courses.</p>
+    <div className="w-full min-h-screen bg-[#f8fafc] p-4 sm:p-6 lg:p-10 flex flex-col font-sans">
+      <div className="mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight">My Purchases</h1>
+        <p className="text-slate-500 mt-1 text-xs sm:text-sm">view purchases history and find approve courses.</p>
       </div>
 
       <div className="w-full bg-white rounded-2xl shadow-sm border border-slate-200/60 overflow-hidden">

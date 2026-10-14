@@ -113,16 +113,16 @@ export default function AdminTeachersPage() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#f8fafc] p-6 lg:p-10 font-sans">
+    <div className="w-full min-h-screen bg-[#f8fafc] p-4 sm:p-6 lg:p-10 font-sans">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
-          <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">Instructor Management</h1>
-          <p className="text-slate-500 mt-1 text-sm">Add, edit and remove instructors.</p>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight">Instructor Management</h1>
+          <p className="text-slate-500 mt-1 text-xs sm:text-sm">Add, edit and remove instructors.</p>
         </div>
         <button
           onClick={openAdd}
-          className="bg-accent hover:bg-accent text-white text-sm font-bold px-5 py-2.5 rounded-xl transition shadow"
+          className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition shadow active:scale-95 cursor-pointer text-center"
         >
           + Add Instructor
         </button>

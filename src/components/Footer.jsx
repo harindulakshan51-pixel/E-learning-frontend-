@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 export default function Footer({ variant }) {
   return (
-    <footer className={`${variant === "home" ? "home-footer " : ""}bg-[#f9fbfd] pt-20 pb-10 px-8 border-t border-[#e2e8f0]`}>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+    <footer className={`${variant === "home" ? "home-footer " : ""}bg-[#f9fbfd] pt-12 sm:pt-20 pb-8 sm:pb-10 px-4 sm:px-8 border-t border-[#e2e8f0]`}>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-16">
         {/* Brand Section */}
-        <div className="col-span-1 md:col-span-2">
-          <Link to="/" className="inline-block mb-6">
+        <div className="col-span-1 sm:col-span-2">
+          <Link to="/" className="inline-block mb-4 sm:mb-6">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-gradient-to-br from-accent to-accent rounded-lg flex items-center justify-center shadow-md">
                 <span className="text-white font-bold text-xl leading-none">S</span>
@@ -15,34 +15,33 @@ export default function Footer({ variant }) {
               <h3 className="text-2xl font-black text-[#0a1128]"><span className="text-brand">Scholarly</span></h3>
             </div>
           </Link>
-          <p className="text-[#64748b] leading-relaxed max-w-sm text-[15px]">
+          <p className="text-[#64748b] leading-relaxed max-w-sm text-sm sm:text-[15px]">
             The intellectual atelier for digital mastery. We curate world-class instruction for the next generation of creative technologists.
           </p>
         </div>
 
         {/* Links Section */}
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-3.5 sm:gap-5">
           <h4 className="font-bold text-[#0a1128] uppercase text-xs tracking-[0.15em]">Platform</h4>
-          <Link to="/categories" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">Course Catalog</Link>
-          <Link to="/myLearning" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">My Courses</Link>
-          {/* <Link to="/instructors" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">Instructors</Link> */}
-          <Link to="/about" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">About Us</Link>
+          <Link to="/categories" className="text-[#64748b] hover:text-accent transition-colors text-sm sm:text-[15px] font-medium">Course Catalog</Link>
+          <Link to="/myLearning" className="text-[#64748b] hover:text-accent transition-colors text-sm sm:text-[15px] font-medium">My Courses</Link>
+          <Link to="/about" className="text-[#64748b] hover:text-accent transition-colors text-sm sm:text-[15px] font-medium">About Us</Link>
         </div>
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-3.5 sm:gap-5">
           <h4 className="font-bold text-[#0a1128] uppercase text-xs tracking-[0.15em]">Support</h4>
-          <Link to="/terms" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">Terms of Service</Link>
-          <Link to="/privacy" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">Privacy Policy</Link>
-          <Link to="/contact" className="text-[#64748b] hover:text-accent transition-colors text-[15px] font-medium">Contact Support</Link>
+          <Link to="/terms" className="text-[#64748b] hover:text-accent transition-colors text-sm sm:text-[15px] font-medium">Terms of Service</Link>
+          <Link to="/privacy" className="text-[#64748b] hover:text-accent transition-colors text-sm sm:text-[15px] font-medium">Privacy Policy</Link>
+          <Link to="/contact" className="text-[#64748b] hover:text-accent transition-colors text-sm sm:text-[15px] font-medium">Contact Support</Link>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto border-t border-[#e2e8f0] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-[11px] text-[#94a3b8] uppercase tracking-[0.15em] font-medium">
-          © {new Date().getFullYear()} <span className="text-brand">SCHOLARLY</span> ATELIER. CULTIVATING DIGITAL CRAFT.
+      <div className="max-w-7xl mx-auto border-t border-[#e2e8f0] pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+        <p className="text-[10px] sm:text-[11px] text-[#94a3b8] uppercase tracking-[0.15em] font-medium">
+          © {new Date().getFullYear()} <span className="text-brand font-semibold">SCHOLARLY</span> ATELIER. CULTIVATING DIGITAL CRAFT.
         </p>
         
-        {/* Optional Social Icons or just some decoration */}
+        {/* Social Icons */}
         <div className="flex gap-4">
           <div className="w-8 h-8 rounded-full bg-white border border-[#e2e8f0] flex items-center justify-center text-[#94a3b8] hover:text-accent hover:border-accent transition-all cursor-pointer shadow-sm">
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

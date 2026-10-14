@@ -38,16 +38,16 @@ export default function AdminOrdersPage() {
   };
 
   return (
-    <div className="w-full min-h-screen p-8 lg:p-12 flex flex-col font-sans">
+    <div className="w-full min-h-screen p-4 sm:p-6 lg:p-12 flex flex-col font-sans">
       {/* ── Page Header ── */}
-      <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="mb-6 sm:mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Order Management</h1>
-          <p className="text-slate-500 mt-2 text-sm font-medium">Monitor and manage all customer transactions in real-time.</p>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Order Management</h1>
+          <p className="text-slate-500 mt-1 sm:mt-2 text-xs sm:text-sm font-medium">Monitor and manage all customer transactions in real-time.</p>
         </div>
         
         {/* Search & Filter Bar (UI Elements) */}
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <div className="relative group">
             <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-accent transition-colors" size={18} />
             <input 

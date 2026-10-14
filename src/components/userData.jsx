@@ -2,9 +2,9 @@ import { DEFAULT_PROFILE_IMAGE } from '../utils/images';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
-import { motion as Motion, AnimatePresence } from "framer-motion"; // <-- Added Framer Motion
+import { motion as Motion, AnimatePresence } from "framer-motion";
 
-export default function UserData() {
+export default function UserData({ mobile = false, onAction }) {
   const [user, setUser] = useState(null);
   // state of dropdown open/close
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +17,62 @@ export default function UserData() {
 
   // Shared profile image from the configured storage project
   const defaultImage = DEFAULT_PROFILE_IMAGE;
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(import.meta.env.VITE_BACKEND_URL + "/users/logout");
+    } catch {
+      // ignore
+    }
+    sessionStorage.removeItem("token");
+    window.location.href = "/login";
+  };
+
+  if (mobile) {
+    if (user) {
+      return (
+        <div className="flex flex-col gap-3 pt-2">
+          <div className="flex items-center gap-3 px-1 py-1">
+            <img
+              referrerPolicy="no-referrer"
+              src={user.image || defaultImage}
+              onError={(e) => { if (e.target.src !== defaultImage) e.target.src = defaultImage; }}
+              className="w-10 h-10 rounded-full object-cover border-2 border-accent-100 shadow-sm"
+              alt="User profile"
+            />
+            <div className="min-w-0">
+              <p className="font-bold text-slate-800 text-sm truncate">{user.firstName} {user.lastName || ''}</p>
+              <p className="text-xs text-slate-400 truncate">{user.email || 'Student'}</p>
+            </div>
+          </div>
+          <button
+            onClick={handleLogout}
+            className="w-full text-center py-2.5 px-4 text-sm font-bold text-red-600 bg-red-50 hover:bg-red-100 rounded-xl transition-colors cursor-pointer"
+          >
+            Logout
+          </button>
+        </div>
+      );
+    }
+    return (
+      <div className="flex flex-col sm:flex-row gap-2.5 pt-2">
+        <Link
+          to="/login"
+          onClick={onAction}
+          className="w-full text-center py-2.5 px-4 rounded-xl border border-slate-200 text-slate-700 hover:text-accent hover:border-accent font-bold text-sm transition-all"
+        >
+          Login
+        </Link>
+        <Link
+          to="/register"
+          onClick={onAction}
+          className="w-full text-center py-2.5 px-4 rounded-xl bg-accent text-white font-bold text-sm hover:bg-accent transition-all shadow-sm active:scale-95"
+        >
+          Sign Up
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <>

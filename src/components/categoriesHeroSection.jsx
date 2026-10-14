@@ -9,7 +9,7 @@ const courses = [
 
 export default function CategoriesHeroSection({ query }) {
     return (
-        <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 mt-1">
+        <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 md:px-12 xl:px-16 mt-1">
             <section className="catalog-hero" aria-labelledby="catalog-hero-title">
                 <div className="catalog-hero__decoration" aria-hidden="true" />
                 <div className="catalog-hero__copy">

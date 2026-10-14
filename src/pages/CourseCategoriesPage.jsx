@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
-import { motion as Motion } from "framer-motion"; // <-- Added Framer Motion
+import { motion as Motion } from "framer-motion";
 import Loader from "../components/loader";
 import CourseCard from "../components/courseCard";
 import CategoriesHeroSection from "../components/categoriesHeroSection";
@@ -14,11 +14,9 @@ export default function CourseCategoriesPage() {
 function CategoryResults({ query }) {
     const [course, setCourse] = useState([]);
     const [loaded, setLoaded] = useState(false);
-
     const [visibleCount, setVisibleCount] = useState(8);
 
     useEffect(() => {
-
         const url = query.trim() === "" 
             ? `${import.meta.env.VITE_BACKEND_URL}/courses`
             : `${import.meta.env.VITE_BACKEND_URL}/courses/search/${encodeURIComponent(query)}`;
@@ -57,7 +55,7 @@ function CategoryResults({ query }) {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.15 // Controls the delay between each card appearing
+                staggerChildren: 0.15
             }
         }
     };
@@ -68,20 +66,20 @@ function CategoryResults({ query }) {
     };
 
     return (
-        <div className="w-full min-h-[calc(100vh-100px)] flex flex-col bg-[#f9fbfd] pt-10 pb-20">
+        <div className="w-full min-h-[calc(100vh-100px)] flex flex-col bg-[#f9fbfd] pt-4 sm:pt-8 pb-16 sm:pb-20">
             <CategoriesHeroSection query={query} />
 
-            <div className="w-full flex justify-center p-4">
-                <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 py-8">
+            <div className="w-full flex justify-center p-2 sm:p-4">
+                <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 md:px-12 xl:px-16 py-6 sm:py-8">
                     
                     {/* Header Section with Animation */}
                     <Motion.div
                         variants={headerVariant}
                         initial="hidden"
                         animate="visible"
-                        className="mb-12 border-b border-[#e2e8f0] pb-10"
+                        className="mb-8 sm:mb-12 border-b border-[#e2e8f0] pb-6 sm:pb-10"
                     >
-                        <h2 className="text-4xl md:text-[2.75rem] font-black text-[#0a1128] mb-5 tracking-tight leading-[1.15]">
+                        <h2 className="text-2xl min-[480px]:text-3xl md:text-[2.75rem] font-black text-[#0a1128] mb-3 sm:mb-5 tracking-tight leading-[1.18]">
                             {query ? (
                                 <span>
                                     Search Results for <span className="text-accent">"{query}"</span>
@@ -90,7 +88,7 @@ function CategoryResults({ query }) {
                                 "Master In-Demand Industrial Skills"
                             )}
                         </h2>
-                        <p className="text-[#64748b] text-[14px] md:text-[18px] max-w-3xl leading-relaxed font-medium">
+                        <p className="text-[#64748b] text-[13px] sm:text-[15px] md:text-[18px] max-w-3xl leading-relaxed font-medium">
                             {query 
                                 ? `Discover ${course.length} specialized programs matching your search criteria.` 
                                 : "Explore our comprehensive curriculum designed to bridge the gap between learning and industry mastery. Choose your path and start your journey today."}
@@ -102,9 +100,9 @@ function CategoryResults({ query }) {
                         <Motion.div
                             initial={{ opacity: 0 }} 
                             animate={{ opacity: 1 }} 
-                            className="w-full flex justify-center items-center h-[300px]"
+                            className="w-full flex justify-center items-center h-[240px] sm:h-[300px]"
                         >
-                            <p className="text-[#64748b] text-xl font-medium">No courses found.</p>
+                            <p className="text-[#64748b] text-lg sm:text-xl font-medium">No courses found.</p>
                         </Motion.div>
                     ) : (
                         <>
@@ -113,7 +111,7 @@ function CategoryResults({ query }) {
                                 variants={gridContainerVariant}
                                 initial="hidden"
                                 animate="visible"
-                                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+                                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 justify-items-center sm:justify-items-stretch"
                             >
                                 {course.slice(0, visibleCount).map((item) => (
                                     <CourseCard
@@ -130,7 +128,7 @@ function CategoryResults({ query }) {
                                     initial="hidden"
                                     whileInView="visible"
                                     viewport={{ once: true, amount: 0.5 }}
-                                    className="w-full flex justify-center mt-16"
+                                    className="w-full flex justify-center mt-12 sm:mt-16"
                                 >
                                     <button 
                                         onClick={loadMore}

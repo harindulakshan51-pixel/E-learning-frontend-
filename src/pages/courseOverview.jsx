@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { motion as Motion } from "framer-motion"; // <-- Added Framer Motion
+import { motion as Motion } from "framer-motion";
 import Loader from "../components/loader";
 import EnrollCourse from "../components/EnrollCourse";
 
@@ -35,7 +35,7 @@ export default function ProductOverview() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15, // Staggers the loading of child sections
+        staggerChildren: 0.15,
       },
     },
   };
@@ -67,7 +67,7 @@ export default function ProductOverview() {
         <Motion.div
           initial={{ opacity: 0, scale: 0.9 }} 
           animate={{ opacity: 1, scale: 1 }} 
-          className="w-full h-[60vh] flex flex-col items-center justify-center"
+          className="w-full h-[60vh] flex flex-col items-center justify-center p-4 text-center"
         >
           <h1 className="text-2xl font-bold text-gray-800">Oops! Course Not Found</h1>
           <p className="text-gray-500 mt-2">Please try again.</p>
@@ -79,99 +79,63 @@ export default function ProductOverview() {
           variants={containerVariant}
           initial="hidden"
           animate="visible"
-          className="pt-24 pb-20 px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12"
+          className="pt-6 sm:pt-10 lg:pt-16 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12"
         >
           
-          <div className="lg:col-span-8 space-y-12">
+          <div className="lg:col-span-8 space-y-8 sm:space-y-12">
             {/* Header Section */}
             <Motion.section variants={fadeUpVariant} className="space-y-4">
-              <nav className="flex gap-2 text-sm text-gray-500">
+              <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-500">
                 <span className="hover:text-accent cursor-pointer" onClick={() => navigate("/")}>Course Catalog</span>
                 <span>/</span>
                 <span className="hover:text-accent cursor-pointer">{course.category || "General"}</span>
                 <span>/</span>
-                <span className="text-gray-900 truncate max-w-[200px] inline-block align-bottom font-medium">{course.title}</span>
+                <span className="text-gray-900 truncate max-w-[160px] sm:max-w-[280px] inline-block align-bottom font-medium">{course.title}</span>
               </nav>
               
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-gray-900">
+              <h1 className="text-2xl min-[480px]:text-3xl md:text-5xl font-extrabold tracking-tight leading-tight text-gray-900">
                 {course.title}
               </h1>
               
-              <p className="text-xl text-gray-500 leading-relaxed">
+              <p className="text-base sm:text-xl text-gray-600 leading-relaxed font-normal">
                 {course.description || "Learn from the best and master your skills with our professional curriculum."}
               </p>
               
-              <div className="flex flex-wrap items-center gap-6 pt-2">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-6 pt-2 text-xs sm:text-sm">
                 <div className="flex items-center gap-1 bg-orange-50 px-3 py-1 rounded-full">
                   <span className="font-bold text-orange-600">⭐ 4.9</span>
                   <span className="text-xs text-orange-500 ml-1">(2.4k ratings)</span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-500 font-medium">
+                <div className="flex items-center gap-2 text-gray-600 font-medium">
                    <span>👨‍🏫 By {course.instructor || "Expert Instructor"}</span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-500 font-medium">
+                <div className="flex items-center gap-2 text-gray-600 font-medium">
                   <span>👥 12,450 students enrolled</span>
                 </div>
               </div>
             </Motion.section>
 
             {/* Thumbnail Section */}
-            <Motion.section variants={scaleUpVariant} className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-gray-100 border border-gray-100">
+            <Motion.section variants={scaleUpVariant} className="relative aspect-video rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl bg-gray-100 border border-gray-100">
               <img 
                 src={course.thumbnail || DEFAULT_COURSE_IMAGE}
                 alt={course.title} 
                 className="w-full h-full object-cover"
               />
             </Motion.section>
-
-            {/* What you'll learn Section */}
-            {/* <Motion.section variants={fadeUpVariant} className="bg-gray-50 p-8 rounded-3xl space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900">What you'll learn</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  "Comprehensive understanding of core concepts.",
-                  "Hands-on experience with real-world projects.",
-                  "Mastering industry-standard tools and techniques.",
-                  "Developing a professional mindset and workflow.",
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-3">
-                    <span className="text-accent font-bold">✓</span>
-                    <p className="text-gray-600 text-sm font-medium">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </Motion.section> */}
-
-            {/* Course Content Section */}
-            {/* <Motion.section variants={fadeUpVariant} className="space-y-6">
-              <div className="flex justify-between items-end">
-                <h2 className="text-2xl font-bold text-gray-900">Course Content</h2>
-                <span className="text-sm text-gray-500 font-semibold">{course.duration || "12h 45m"} total length</span>
-              </div>
-              <div className="space-y-4">
-                {["Getting Started", "Foundations & Basics", "Advanced Techniques"].map((section, i) => (
-                  <div key={i} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                    <div className="p-6 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors">
-                      <h3 className="font-bold text-gray-800">{section}</h3>
-                      <span className="text-xs text-gray-500 font-bold uppercase tracking-wider bg-gray-100 px-3 py-1 rounded-lg">Module {i + 1}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Motion.section> */}
           </div>
 
-          {/* Sticky Sidebar Section */}
+          {/* Sidebar Section */}
           <Motion.aside variants={fadeLeftVariant} className="lg:col-span-4">
-            <div className="sticky top-28 space-y-6">
-              <div className="bg-white p-8 rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-gray-100">
+            <div className="lg:sticky lg:top-28 space-y-6">
+              <div className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] border border-gray-100">
                 <div className="space-y-6">
-                  <div className="flex flex-wrap items-baseline gap-3">
-                    <span className="text-4xl font-black text-gray-900">LKR. {course.price}</span>
+                  <div className="flex flex-wrap items-baseline gap-2 sm:gap-3">
+                    <span className="text-2xl sm:text-4xl font-black text-gray-900">LKR. {course.price}</span>
                     {course.labelledPrice && (
                       <>
-                        <span className="text-gray-400 line-through text-lg">LKR. {course.labelledPrice}</span>
-                        <span className="text-orange-600 font-bold text-sm bg-orange-50 px-2 py-1 rounded-lg ml-auto">
+                        <span className="text-gray-400 line-through text-base sm:text-lg">LKR. {course.labelledPrice}</span>
+                        <span className="text-orange-600 font-bold text-xs sm:text-sm bg-orange-50 px-2 py-1 rounded-lg ml-auto">
                           {Math.round(((course.labelledPrice - course.price) / course.labelledPrice) * 100)}% OFF
                         </span>
                       </>
@@ -189,8 +153,8 @@ export default function ProductOverview() {
                         "Access on mobile and desktop", 
                         "Certificate of completion"
                       ].map(item => (
-                        <li key={item} className="flex items-center gap-3 text-sm font-medium text-gray-600">
-                          <span className="text-accent text-lg leading-none">✓</span>{item}
+                        <li key={item} className="flex items-center gap-3 text-xs sm:text-sm font-medium text-gray-600">
+                          <span className="text-accent text-base sm:text-lg leading-none">✓</span>{item}
                         </li>
                       ))}
                     </ul>

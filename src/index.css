@@ -11,3 +11,20 @@
   --color-accent-200: color-mix(in srgb, var(--color-accent) 25%, white);
   --color-accent-300: color-mix(in srgb, var(--color-accent) 40%, white);
 }
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { motion as Motion } from "framer-motion"; // <-- Added Framer Motion
+import { motion as Motion } from "framer-motion";
 
 const BACKEND = import.meta.env.VITE_BACKEND_URL;
 
 export default function InstructorsPage() {
   const [instructors, setInstructors] = useState([]);
   const [loaded, setLoaded] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(6); //Load More
+  const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
     axios
@@ -30,7 +30,7 @@ export default function InstructorsPage() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15, // Delay between each card showing up
+        staggerChildren: 0.15,
       },
     },
   };
@@ -43,50 +43,52 @@ export default function InstructorsPage() {
   return (
     <div className="w-full font-sans bg-gray-50 min-h-screen pb-20">
 
-      {/* ── Hero Banner — course catalog style ── */}
+      {/* ── Hero Banner ── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10">
+        <Motion.div
+          variants={fadeUpVariant}
+          initial="hidden"
+          animate="visible"
+          className="rounded-2xl bg-gradient-to-br from-accent to-accent p-6 sm:p-12 text-white relative overflow-hidden"
+        >
+          {/* decorative circles */}
+          <div className="absolute -top-10 -right-10 w-64 h-64 rounded-full bg-white/5 pointer-events-none"></div>
+          <div className="absolute bottom-0 right-32 w-40 h-40 rounded-full bg-white/5 pointer-events-none"></div>
+
+          <span className="text-xs font-bold uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full mb-4 inline-flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block"></span>
+            Expert-Led Faculty
+          </span>
+          <h1 className="text-2xl min-[480px]:text-3xl md:text-5xl font-extrabold leading-tight mt-3 mb-3 sm:mb-4">
+            Guided by the world's<br />
+            <span className="text-accent-200">most refined masters.</span>
+          </h1>
+          <p className="text-accent-100 text-sm sm:text-base max-w-xl leading-relaxed">
+            Our Faculty of Experts aren't just teachers — they are practitioners at the pinnacle of their craft.
+          </p>
+        </Motion.div>
+      </div>
+
+      {/* ── Section Header ── */}
       <Motion.div
         variants={fadeUpVariant}
         initial="hidden"
         animate="visible"
-        className="mx-80 mt-10 rounded-2xl bg-gradient-to-br from-accent to-accent px-8 py-12 text-white relative overflow-hidden"
+        transition={{ delay: 0.2 }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10 mb-6 sm:mb-8 border-b border-slate-200 pb-6 sm:pb-8"
       >
-        {/* decorative circles */}
-        <div className="absolute -top-10 -right-10 w-64 h-64 rounded-full bg-white/5"></div>
-        <div className="absolute bottom-0 right-32 w-40 h-40 rounded-full bg-white/5"></div>
-
-        <span className="text-xs font-bold uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full mb-4 inline-flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block"></span>
-          Expert-Led Faculty
-        </span>
-        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mt-3 mb-4">
-          Guided by the world's<br />
-          <span className="text-accent-200">most refined masters.</span>
-        </h1>
-        <p className="text-accent-100 text-base max-w-xl leading-relaxed">
-          Our Faculty of Experts aren't just teachers — they are practitioners at the pinnacle of their craft.
-        </p>
-      </Motion.div>
-
-      {/* ── Section Header — course catalog style ── */}
-      <Motion.div
-        variants={fadeUpVariant}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 0.2 }} // slight delay after hero banner
-        className="max-w-7xl mx-auto px-8 mt-10 mb-8 border-b border-slate-200 pb-8"
-      >
-        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        <h2 className="text-2xl min-[480px]:text-3xl md:text-5xl font-extrabold text-slate-900 mb-3 sm:mb-4 tracking-tight">
           Master In-Demand Industrial Skills
         </h2>
-        <p className="text-slate-500 text-base md:text-lg max-w-3xl leading-relaxed">
+        <p className="text-slate-500 text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed">
           Explore our comprehensive faculty designed to bridge the gap between learning and industry mastery.
         </p>
       </Motion.div>
 
       {/* ── Grid ── */}
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {!loaded ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[1, 2, 3].map((i) => (
               <div key={i} className="bg-white rounded-3xl overflow-hidden border border-gray-100 animate-pulse">
                 <div className="bg-slate-200 h-64 w-full" />
@@ -108,20 +110,19 @@ export default function InstructorsPage() {
           </Motion.div>
         ) : (
           <>
-            {/* CourseCard style grid with staggered animation */}
             <Motion.div
               variants={gridContainerVariant}
               initial="hidden"
               animate="visible"
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
             >
               {instructors.slice(0, visibleCount).map((inst) => (
                 <Motion.div key={inst.instructorId} variants={cardVariant} className="h-full">
                   <div
-                    className="group bg-white rounded-3xl p-5 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col cursor-pointer border border-gray-100 w-full h-full"
+                    className="group bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 flex flex-col border border-gray-100 w-full h-full"
                   >
-                    {/* Photo — h-64, rounded-2xl, badge overlay */}
-                    <div className="relative h-64 w-full rounded-2xl overflow-hidden mb-6 bg-gray-100 shrink-0">
+                    {/* Photo */}
+                    <div className="relative h-48 sm:h-64 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-6 bg-gray-100 shrink-0">
                       {inst.image ? (
                         <img
                           src={inst.image}
@@ -130,70 +131,70 @@ export default function InstructorsPage() {
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent-50 to-slate-100">
-                          <span className="text-7xl font-extrabold text-accent-200 select-none">
+                          <span className="text-6xl sm:text-7xl font-extrabold text-accent-200 select-none">
                             {inst.name.charAt(0).toUpperCase()}
                           </span>
                         </div>
                       )}
-                      {/* Specialty badge — course category badge style */}
-                      <span className="absolute top-4 left-4 bg-accent text-white px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider">
+                      {/* Specialty badge */}
+                      <span className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-accent text-white px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider">
                         {inst.specialty || "Faculty"}
                       </span>
                       {/* Rating badge */}
                       {inst.rating > 0 && (
-                        <span className="absolute top-4 right-4 flex items-center gap-1 bg-white/90 backdrop-blur-sm text-amber-500 font-black text-xs px-2.5 py-1 rounded-lg shadow-sm">
+                        <span className="absolute top-3 sm:top-4 right-3 sm:right-4 flex items-center gap-1 bg-white/90 backdrop-blur-sm text-amber-500 font-black text-xs px-2.5 py-1 rounded-lg shadow-sm">
                           ★ {inst.rating}
                         </span>
                       )}
                     </div>
 
                     {/* Info */}
-                    <div className="px-2 flex flex-col flex-grow">
+                    <div className="px-1 sm:px-2 flex flex-col flex-grow">
                       {/* Name */}
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-accent transition-colors line-clamp-1">
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1.5 sm:mb-2 group-hover:text-accent transition-colors line-clamp-1">
                         {inst.name}
                       </h3>
 
                       {/* Title + avatar row */}
-                      <div className="flex items-center gap-3 mb-5">
-                        <div className="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center shrink-0">
+                      <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-5">
+                        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-accent-100 flex items-center justify-center shrink-0">
                           <span className="text-xs font-bold text-accent">
                             {inst.name.charAt(0).toUpperCase()}
                           </span>
                         </div>
-                        <p className="text-gray-500 text-sm font-medium">{inst.title}</p>
+                        <p className="text-gray-500 text-xs sm:text-sm font-medium truncate">{inst.title}</p>
                       </div>
 
                       {/* Bio */}
-                      <p className="text-sm text-slate-400 leading-relaxed mb-5 line-clamp-2">
+                      <p className="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4 sm:mb-5 line-clamp-2">
                         {inst.bio}
                       </p>
 
                       {/* Divider */}
-                      <div className="w-full h-px bg-gray-100 mb-5 mt-auto"></div>
+                      <div className="w-full h-px bg-gray-100 mb-4 sm:mb-5 mt-auto"></div>
 
                       {/* Stats + Button */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <div className="flex items-center gap-3 sm:gap-4">
                           {inst.students && (
                             <div className="flex flex-col">
                               <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Students</span>
-                              <span className="text-lg font-black text-gray-900">{inst.students}</span>
+                              <span className="text-base sm:text-lg font-black text-gray-900">{inst.students}</span>
                             </div>
                           )}
                           {inst.students && inst.courses > 0 && (
-                            <div className="w-px h-8 bg-slate-100" />
+                            <div className="w-px h-7 bg-slate-200" />
                           )}
                           {inst.courses > 0 && (
                             <div className="flex flex-col">
                               <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Courses</span>
-                              <span className="text-lg font-black text-gray-900">{inst.courses}</span>
+                              <span className="text-base sm:text-lg font-black text-gray-900">{inst.courses}</span>
                             </div>
                           )}
                         </div>
 
-                        {/* Buy Course style button */}
-                        <button className="bg-accent text-white rounded-xl px-6 py-3 font-bold text-sm hover:bg-accent hover:shadow-lg transition-all active:scale-95">
+                        {/* Action button */}
+                        <button className="bg-accent text-white rounded-xl px-4 sm:px-6 py-2.5 sm:py-3 font-bold text-xs sm:text-sm hover:bg-accent hover:shadow-lg transition-all active:scale-95 shrink-0">
                           View Courses
                         </button>
                       </div>
@@ -203,21 +204,21 @@ export default function InstructorsPage() {
               ))}
             </Motion.div>
 
-            {/* Load More — Animated */}
+            {/* Load More */}
             {visibleCount < instructors.length && (
               <Motion.div
                 variants={fadeUpVariant}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
-                className="w-full flex justify-center mt-16"
+                className="w-full flex justify-center mt-12 sm:mt-16"
               >
                 <button
                   onClick={() => setVisibleCount(prev => prev + 6)}
-                  className="group inline-flex items-center gap-4 bg-white px-10 py-4 rounded-2xl shadow-sm border border-slate-200 hover:border-accent/30 transition-all hover:shadow-md active:scale-95 cursor-pointer"
+                  className="group inline-flex items-center gap-3 bg-white px-8 py-3.5 rounded-2xl shadow-sm border border-slate-200 hover:border-accent/30 transition-all hover:shadow-md active:scale-95 cursor-pointer"
                 >
-                  <span className="font-semibold text-accent text-lg">Load More Instructors</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-accent transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <span className="font-semibold text-accent text-base sm:text-lg">Load More Instructors</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-accent transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>

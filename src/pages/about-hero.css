@@ -55,8 +55,8 @@
 }
 .about-hero h1 {
   margin-bottom: 16px;
-  font-size: clamp(28px, 3vw, 43px);
-  line-height: 1.12;
+  font-size: clamp(26px, 3vw, 43px);
+  line-height: 1.15;
   font-weight: 850;
   letter-spacing: -.035em;
 }
@@ -65,9 +65,9 @@
   .about-hero { padding: 36px; }
 }
 @media (max-width: 767px) {
-  .about-hero { min-height: 0; padding: 36px 22px; border-radius: 24px; }
+  .about-hero { min-height: 0; padding: 28px 20px; border-radius: 22px; }
   .about-hero__copy > p { font-size: 14px; }
 }
-@media (max-width: 380px) {
-  .about-hero { padding-inline: 18px; }
+@media (max-width: 400px) {
+  .about-hero { padding: 24px 16px; border-radius: 18px; }
 }

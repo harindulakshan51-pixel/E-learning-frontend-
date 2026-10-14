@@ -2,7 +2,7 @@ import { DEFAULT_COURSE_IMAGE } from '../../utils/images';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BiPlus } from "react-icons/bi";
-import { FiSearch } from "react-icons/fi"; // Added for UI enhancement
+import { FiSearch } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../components/loader";
 import CourseDeleteButton from "../../components/courseDeleteButton";
@@ -25,16 +25,16 @@ export default function AdminCoursePage() {
   }, [loaded]);
 
   return (
-    <div className="w-full min-h-screen p-8 lg:p-12 flex flex-col font-sans">
+    <div className="w-full min-h-screen p-4 sm:p-6 lg:p-12 flex flex-col font-sans">
       
       {/* ── Page Header ── */}
-      <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="mb-6 sm:mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Course Management</h1>
-          <p className="text-slate-500 mt-2 text-sm font-medium">Create, update, and manage your educational content.</p>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Course Management</h1>
+          <p className="text-slate-500 mt-1 sm:mt-2 text-xs sm:text-sm font-medium">Create, update, and manage your educational content.</p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           {/* Search Bar (UI Only) */}
           <div className="relative group hidden sm:block">
             <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-accent transition-colors" size={18} />
@@ -48,7 +48,7 @@ export default function AdminCoursePage() {
           {/* Add Course Button */}
           <Link
             to="/admin/add-course"
-            className="flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-xl font-medium shadow-lg shadow-accent/30 hover:bg-accent hover:shadow-accent/40 transition-all duration-300 hover:-translate-y-0.5"
+            className="flex items-center gap-2 bg-accent text-white px-4 sm:px-5 py-2.5 rounded-xl font-medium shadow-lg shadow-accent/30 hover:bg-accent hover:shadow-accent/40 transition-all duration-300 hover:-translate-y-0.5 text-sm"
           >
             <BiPlus size={20} />
             Add Course
@@ -118,74 +118,77 @@ export default function AdminCoursePage() {
                       </td>
 
                       {/* Title */}
-                      <td className="px-6 py-4">
-                        <div className="font-semibold text-slate-800 text-sm">{item.title}</div>
+                      <td className="px-6 py-4 font-semibold text-slate-800 text-sm">
+                        {item.title}
                       </td>
 
                       {/* Description */}
-                      <td className="px-6 py-4 text-sm text-slate-500">
+                      <td className="px-6 py-4 text-slate-500 text-sm">
                         <div className="max-w-[200px] truncate" title={item.description}>
                           {item.description}
                         </div>
                       </td>
 
                       {/* Price */}
-                      <td className="px-6 py-4">
-                        <span className="font-bold text-slate-900 text-sm">
-                          ${item.price}
-                        </span>
+                      <td className="px-6 py-4 font-bold text-slate-900 text-sm">
+                        LKR. {item.price}
                       </td>
 
                       {/* Labelled Price */}
-                      <td className="px-6 py-4">
-                        <span className="line-through text-xs font-medium text-slate-400">
-                          {item.labelledPrice ? `$${item.labelledPrice}` : "-"}
-                        </span>
+                      <td className="px-6 py-4 text-slate-400 line-through text-sm">
+                        LKR. {item.labelledPrice}
                       </td>
 
                       {/* Instructor */}
-                      <td className="px-6 py-4 text-sm font-medium text-slate-600">
+                      <td className="px-6 py-4 text-slate-600 text-sm">
                         {item.instructor}
                       </td>
 
                       {/* Duration */}
-                      <td className="px-6 py-4 text-sm text-slate-600">
-                        {item.duration}
+                      <td className="px-6 py-4 text-slate-600 text-sm">
+                        <span className="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md text-xs font-medium">
+                          {item.duration}
+                        </span>
                       </td>
 
                       {/* Category */}
-                      <td className="px-6 py-4 text-sm text-slate-600">
-                        <span className="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md text-xs font-medium">
+                      <td className="px-6 py-4 text-slate-600 text-sm">
+                        <span className="bg-accent-50 text-accent px-2.5 py-1 rounded-md text-xs font-medium">
                           {item.category}
                         </span>
                       </td>
 
                       {/* Status */}
                       <td className="px-6 py-4">
-                        <span
-                          className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-wide border ${
-                            item.isAvailable
-                              ? "bg-[#F0FDF4] text-[#15803D] border-[#DCFCE7]"
-                              : "bg-[#FEF2F2] text-[#B91C1C] border-[#FEE2E2]"
-                          }`}
-                        >
-                          <span className={`w-1.5 h-1.5 rounded-full ${item.isAvailable ? "bg-[#22C55E]" : "bg-[#EF4444]"}`} />
-                          {item.isAvailable ? "Available" : "Unavailable"}
+                        <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-600 border border-emerald-100 px-2.5 py-1 rounded-full text-xs font-medium">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                          Active
                         </span>
                       </td>
 
                       {/* Actions */}
                       <td className="px-6 py-4 text-center">
-                        <div className="flex items-center justify-center gap-2 opacity-90 group-hover:opacity-100 transition-opacity">
+                        <div className="flex items-center justify-center gap-2">
+                          {/* Edit Button */}
                           <button
-                            className="text-xs font-semibold bg-accent-50 text-accent hover:bg-accent hover:text-white px-3 py-2 rounded-lg transition-colors duration-200 shadow-sm"
-                            onClick={() => navigate("/admin/update-course", { state: item })}
+                            onClick={() => {
+                              navigate("/admin/update-course", {
+                                state: item,
+                              });
+                            }}
+                            className="p-2 text-slate-400 hover:text-accent hover:bg-accent-50 rounded-lg transition-colors cursor-pointer"
+                            title="Edit Course"
                           >
-                            Edit
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
                           </button>
-                          
-                          {/* CourseDeleteButton component (Ensure it has modern styles inside its own file if needed) */}
-                          <CourseDeleteButton courseId={item.courseId} reload={() => { setProducts(current => current.filter(c => c.courseId !== item.courseId)); }} />
+
+                          {/* Delete Button */}
+                          <CourseDeleteButton
+                            courseId={item.courseId}
+                            onSuccess={() => setloaded(false)}
+                          />
                         </div>
                       </td>
                     </tr>
@@ -195,9 +198,8 @@ export default function AdminCoursePage() {
             </table>
           </div>
         ) : (
-          <div className="py-32 flex flex-col items-center justify-center gap-4">
+          <div className="w-full h-80 flex items-center justify-center">
             <Loader />
-            <p className="text-slate-400 text-sm font-medium animate-pulse">Loading courses...</p>
           </div>
         )}
       </div>
