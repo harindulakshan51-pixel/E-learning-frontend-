@@ -16,7 +16,7 @@ import AdminVideosPage from "./admin/adminVideosPage";
 import AdminTeachersPage from "./admin/adminTeachersPage";
 
 export default function Admin() {
-  // translate-x-1 ඉවත් කරලා, පළල w-[96%] කරලා ලස්සනට මැදට ගත්තා shadow එක කැපෙන්නේ නැති වෙන්න
+
   const navLinkClass = ({ isActive }) =>
     `h-[48px] w-[96%] mx-auto flex items-center gap-4 px-5 rounded-xl transition-all duration-300 text-sm font-medium ${
       isActive
@@ -35,10 +35,10 @@ export default function Admin() {
           <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center shadow-md shadow-accent/40 group-hover:scale-105 transition-transform">
             <img src={LOGO_IMAGE} alt="" className="w-8 h-8 object-contain" />
           </div>
-          <span className="text-white font-bold text-xl tracking-wide"><span className="text-brand">Scholarly</span></span>
+          <span className="text-white font-bold text-xl tracking-wide"><span>Scholarly</span></span>
         </Link>
         
-        {/* Padding වෙනස් කරලා තියෙනවා Shadow එකට ඉඩ තියන්න */}
+
         <div className="py-6 flex flex-col flex-1 overflow-hidden">
           <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4 px-6">Main Menu</p>
           <nav className="flex flex-col gap-2 flex-1 overflow-y-auto px-2 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">

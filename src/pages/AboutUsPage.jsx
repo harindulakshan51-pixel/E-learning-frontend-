@@ -1,5 +1,6 @@
 import { DEFAULT_PROFILE_IMAGE } from '../utils/images';
 import { useNavigate } from "react-router-dom";
+import "./about-hero.css";
 
 export default function AboutUsPage() {
 
@@ -106,19 +107,17 @@ export default function AboutUsPage() {
     <div className="w-full min-h-screen flex flex-col bg-[#f9f9f9]">
       {/* Hero Banner */}
       <div className="max-w-[1700px] mx-auto px-6 md:px-12 xl:px-16 pt-8 w-full">
-        <div className="relative overflow-hidden bg-gradient-to-br from-accent via-accent to-accent rounded-[32px] px-8 py-16 md:px-16 md:py-20 shadow-lg">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-24 right-32 w-80 h-80 bg-white/5 rounded-full blur-2xl"></div>
-          
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white text-[11px] font-bold tracking-[0.1em] uppercase px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-white"></span><span>
-              About <span className="text-brand">Scholarly</span>
+        <div className="about-hero">
+          <div className="about-hero__decoration" aria-hidden="true" />
+          <div className="about-hero__copy">
+            <div className="about-hero__eyebrow">
+              <span aria-hidden="true">✦</span><span>
+              About <span>Scholarly</span>
             </span></div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 max-w-2xl">
+            <h1>
               Built by craftsmen<br />for digital masters.
             </h1>
-            <p className="text-white/80 text-lg max-w-xl leading-relaxed">
+            <p>
               Our faculty aren't just teachers — they are practitioners at the pinnacle of their craft, shaping the next generation of industry leaders.
             </p>
           </div>

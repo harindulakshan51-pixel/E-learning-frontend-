@@ -3,6 +3,10 @@ import UserData from "./userData";
 import { useState } from "react";
 import { LOGO_IMAGE } from '../utils/images';
 
+// Header background opacity: 0 = transparent, 0.5 = 50%, 1 = solid white.
+// Text, logo, and buttons remain fully visible.
+const HEADER_BACKGROUND_OPACITY = 0.3;
+
 export default function Header() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
@@ -26,7 +30,10 @@ export default function Header() {
   };
 
   return (
-    <nav className="relative mt-2 mx-2 md:mx-4 z-50 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100 rounded-2xl flex justify-between items-center px-3 sm:px-8 h-20">
+    <nav
+      style={{ backgroundColor: `rgba(255, 255, 255, ${HEADER_BACKGROUND_OPACITY})` }}
+      className="relative mt-2 mx-2 md:mx-4 z-50 backdrop-blur-md shadow-sm border border-gray-100 rounded-2xl flex justify-between items-center px-3 sm:px-8 h-20"
+    >
       <div className="flex items-center gap-12">
         <div className="flex items-center">
           <Link to="/" className="flex items-center gap-2 text-xl sm:text-3xl font-black text-accent tracking-tight">

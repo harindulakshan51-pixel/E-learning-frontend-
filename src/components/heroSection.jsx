@@ -72,8 +72,8 @@ export default function HeroSection() {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.1] mb-6 text-gray-900 tracking-tight">
-            Better Learning.<br />
-            <span className="text-[#0a1961]">Brighter Future.</span>
+            Better Learning<br />
+            <span className="text-[#0a1961]">Brighter Future</span>
           </h1>
 
           {/* Description */}
@@ -100,7 +100,7 @@ export default function HeroSection() {
               <img className="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://wlbbtprbqprjphegkdtq.supabase.co/storage/v1/object/public/Images/1777212938072-Machine%20Learning%20with%20TensorFlow.jpg" alt="Student" />
             </div>
             <span className="text-sm font-semibold text-gray-600">
-              Join 5000+ Successful Students
+              Join 100+ Successful Students
             </span>
           </div>
         </div>
