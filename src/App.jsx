@@ -9,9 +9,11 @@ import TestPage from './pages/testPage'
 import ForgetPassword from './pages/forgotPasswordPage'
 import { Toaster } from 'react-hot-toast';
 import { GoogleOAuthProvider } from '@react-oauth/google'
+import { useAntiInspection } from './hooks/useAntiInspection';
 
 function App() {
   const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID ;
+  useAntiInspection(import.meta.env.PROD);
 
   return (
     <GoogleOAuthProvider clientId={googleClientId}>
