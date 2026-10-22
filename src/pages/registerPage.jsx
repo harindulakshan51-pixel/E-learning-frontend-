@@ -75,7 +75,7 @@ export default function RegisterPage() {
           <div className="auth-photo-panel__shade" />
           
           <div className="relative z-10 text-2xl font-black tracking-wide">
-            <span className="text-white">Scholarly</span>
+            <span className="text-white">learnbridge</span>
           </div>
 
           <div className="auth-photo-panel__copy">

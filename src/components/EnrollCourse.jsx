@@ -1,29 +1,43 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { api, errorMessage } from '../utils/api';
-export default function EnrollCourse({ courseId }) {
+
+export default function EnrollCourse({ courseId, onEnrollmentChange }) {
   const [state, setState] = useState('loading');
   const [open, setOpen] = useState(false);
   const [code, setCode] = useState('');
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+
   useEffect(() => {
     let active = true;
     api.get('/enrollments/check/' + encodeURIComponent(courseId)).then(({ data }) => {
-      if (active) setState(data.enrolled ? 'enrolled' : 'locked');
-    }).catch(error => { if (active) setState(error.response?.status === 401 ? 'guest' : 'locked'); });
+      if (active) {
+        const enrolled = Boolean(data.enrolled);
+        setState(enrolled ? 'enrolled' : 'locked');
+        if (onEnrollmentChange) onEnrollmentChange(enrolled);
+      }
+    }).catch(error => {
+      if (active) {
+        setState(error.response?.status === 401 ? 'guest' : 'locked');
+        if (onEnrollmentChange) onEnrollmentChange(false);
+      }
+    });
     return () => { active = false; };
-  }, [courseId]);
+  }, [courseId, onEnrollmentChange]);
+
   async function redeem(event) {
     event.preventDefault(); setBusy(true); setMessage('');
     try {
       await api.post('/enrollments', { courseId, code });
       setCode(''); setState('enrolled'); setOpen(false);
+      if (onEnrollmentChange) onEnrollmentChange(true);
       setMessage('Enrolled successfully. This course is now in My Courses.');
     } catch (error) { setMessage(errorMessage(error)); }
     finally { setBusy(false); }
   }
+
   return <div className="space-y-4">
     {state === 'loading' ? <p role="status">Checking course access…</p> :
       state === 'enrolled' ? <Link className="block text-center rounded-xl bg-accent text-white p-4 font-bold" to={'/course/' + courseId}>Continue Learning</Link> :

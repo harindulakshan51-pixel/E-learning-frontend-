@@ -12,6 +12,7 @@ export default function ProductOverview() {
   const navigate = useNavigate();
   const [course, setCourse] = useState(null);
   const [status, setStatus] = useState("loading");
+  const [isEnrolled, setIsEnrolled] = useState(false);
 
   useEffect(() => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -104,13 +105,13 @@ export default function ProductOverview() {
               <div className="flex flex-wrap items-center gap-3 sm:gap-6 pt-2 text-xs sm:text-sm">
                 <div className="flex items-center gap-1 bg-orange-50 px-3 py-1 rounded-full">
                   <span className="font-bold text-orange-600">⭐ 4.9</span>
-                  <span className="text-xs text-orange-500 ml-1">(2.4k ratings)</span>
+                  <span className="text-xs text-orange-500 ml-1">(1.2k ratings)</span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-600 font-medium">
                    <span>👨‍🏫 By {course.instructor || "Expert Instructor"}</span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-600 font-medium">
-                  <span>👥 12,450 students enrolled</span>
+                  <span>👥 100+ students enrolled</span>
                 </div>
               </div>
             </Motion.section>
@@ -130,19 +131,30 @@ export default function ProductOverview() {
             <div className="lg:sticky lg:top-28 space-y-6">
               <div className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] border border-gray-100">
                 <div className="space-y-6">
-                  <div className="flex flex-wrap items-baseline gap-2 sm:gap-3">
-                    <span className="text-2xl sm:text-4xl font-black text-gray-900">LKR. {course.price}</span>
-                    {course.labelledPrice && (
-                      <>
-                        <span className="text-gray-400 line-through text-base sm:text-lg">LKR. {course.labelledPrice}</span>
-                        <span className="text-orange-600 font-bold text-xs sm:text-sm bg-orange-50 px-2 py-1 rounded-lg ml-auto">
-                          {Math.round(((course.labelledPrice - course.price) / course.labelledPrice) * 100)}% OFF
-                        </span>
-                      </>
-                    )}
-                  </div>
+                  {isEnrolled ? (
+                    <div className="space-y-1">
+                      <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">
+                        <span>✓</span> Enrolled
+                      </span>
+                      <p className="text-xs text-gray-500 font-medium">
+                        You have full access to this course.
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="flex flex-wrap items-baseline gap-2 sm:gap-3">
+                      <span className="text-2xl sm:text-4xl font-black text-gray-900">LKR. {course.price}</span>
+                      {course.labelledPrice && (
+                        <>
+                          <span className="text-gray-400 line-through text-base sm:text-lg">LKR. {course.labelledPrice}</span>
+                          <span className="text-orange-600 font-bold text-xs sm:text-sm bg-orange-50 px-2 py-1 rounded-lg ml-auto">
+                            {Math.round(((course.labelledPrice - course.price) / course.labelledPrice) * 100)}% OFF
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  )}
 
-                  <EnrollCourse courseId={course.courseId} />
+                  <EnrollCourse courseId={course.courseId} onEnrollmentChange={setIsEnrolled} />
 
                   <div className="space-y-4 pt-6 border-t border-gray-100">
                     <p className="font-bold text-xs uppercase tracking-widest text-gray-400">This course includes:</p>
@@ -150,8 +162,7 @@ export default function ProductOverview() {
                       {[
                         "Lifetime access to content", 
                         "Professional resources", 
-                        "Access on mobile and desktop", 
-                        "Certificate of completion"
+                        "Access on mobile and desktop"
                       ].map(item => (
                         <li key={item} className="flex items-center gap-3 text-xs sm:text-sm font-medium text-gray-600">
                           <span className="text-accent text-base sm:text-lg leading-none">✓</span>{item}

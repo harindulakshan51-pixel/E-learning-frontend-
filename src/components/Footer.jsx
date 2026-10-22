@@ -10,9 +10,9 @@ export default function Footer({ variant }) {
           <Link to="/" className="inline-block mb-4 sm:mb-6">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-gradient-to-br from-accent to-accent rounded-lg flex items-center justify-center shadow-md">
-                <span className="text-white font-bold text-xl leading-none">S</span>
-              </div>
-              <h3 className="text-2xl font-black text-[#0a1128]"><span className="text-brand">Scholarly</span></h3>
+                <span className="text-white font-bold text-xl leading-none">L</span>
+              </div>  
+              <h3 className="text-2xl font-black text-[#0a1128]"><span className="text-brand">learnbridge</span></h3>
             </div>
           </Link>
           <p className="text-[#64748b] leading-relaxed max-w-sm text-sm sm:text-[15px]">
@@ -38,7 +38,7 @@ export default function Footer({ variant }) {
 
       <div className="max-w-7xl mx-auto border-t border-[#e2e8f0] pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <p className="text-[10px] sm:text-[11px] text-[#94a3b8] uppercase tracking-[0.15em] font-medium">
-          © {new Date().getFullYear()} <span className="text-brand font-semibold">SCHOLARLY</span> ATELIER. CULTIVATING DIGITAL CRAFT.
+          © {new Date().getFullYear()} <span className="text-brand font-semibold">LEARNBRIDGE</span> ATELIER. CULTIVATING DIGITAL CRAFT.
         </p>
         
         {/* Social Icons */}

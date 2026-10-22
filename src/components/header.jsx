@@ -85,7 +85,7 @@ export default function Header() {
           <div className="flex items-center shrink-0">
             <Link to="/" className="flex items-center gap-2 text-xl sm:text-3xl font-black text-accent tracking-tight">
               <img src={LOGO_IMAGE} alt="Scholarly logo" className="w-8 h-8 sm:w-10 sm:h-10 object-contain shrink-0" />
-              <span className="text-brand">Scholarly</span>
+              <span className="text-brand">learnbridge</span>
             </Link>
           </div>
 

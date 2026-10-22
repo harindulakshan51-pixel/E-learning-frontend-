@@ -112,7 +112,7 @@ export default function AboutUsPage() {
           <div className="about-hero__copy">
             <div className="about-hero__eyebrow">
               <span aria-hidden="true">✦</span>
-              <span>About Scholarly</span>
+              <span>About learnbridge</span>
             </div>
             <h1>
               Built by craftsmen<br />for digital masters.
@@ -144,7 +144,7 @@ export default function AboutUsPage() {
         </div>
         <h2 className="text-2xl min-[480px]:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6 tracking-tight">Master In-Demand Industrial Skills</h2>
         <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-3xl mb-8 sm:mb-12 leading-relaxed">
-          <span className="text-brand font-semibold">Scholarly</span> was founded on a simple belief: the gap between learning and mastery shouldn't exist. We build precision-engineered paths that turn aspiration into expertise.
+          <span className="text-brand font-semibold">learnbridge</span> was founded on a simple belief: the gap between learning and mastery shouldn't exist. We build precision-engineered paths that turn aspiration into expertise.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">

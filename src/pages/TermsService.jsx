@@ -11,11 +11,11 @@ export default function TermsServicePage() {
   const sections = [
     {
       title: "1. Acceptance of Terms",
-      content: <>{"By accessing or using "}<span className="text-brand font-semibold">Scholarly</span>{"'s platform, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services. These terms apply to all visitors, students, instructors, and others who access or use the platform."}</>,
+      content: <>{"By accessing or using "}<span className="text-brand font-semibold">learnbridge</span>{"'s platform, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services. These terms apply to all visitors, students, instructors, and others who access or use the platform."}</>,
     },
     {
       title: "2. Use of the Platform",
-      content: <>{"You agree to use "}<span className="text-brand font-semibold">Scholarly</span>{" solely for lawful purposes and in a manner that does not infringe the rights of others. You must not use the platform to distribute harmful content, engage in fraudulent activity, or attempt to gain unauthorized access to any part of our systems."}</>,
+      content: <>{"You agree to use "}<span className="text-brand font-semibold">learnbridge</span>{" solely for lawful purposes and in a manner that does not infringe the rights of others. You must not use the platform to distribute harmful content, engage in fraudulent activity, or attempt to gain unauthorized access to any part of our systems."}</>,
     },
     {
       title: "3. Account Responsibilities",
@@ -23,23 +23,23 @@ export default function TermsServicePage() {
     },
     {
       title: "4. Intellectual Property",
-      content: <>{"All content on "}<span className="text-brand font-semibold">Scholarly</span>{" — including course materials, videos, graphics, and text — is the intellectual property of "}<span className="text-brand font-semibold">Scholarly</span>{" or its instructors. You may not reproduce, distribute, or create derivative works from any content without explicit written permission."}</>,
+      content: <>{"All content on "}<span className="text-brand font-semibold">learnbridge</span>{" — including course materials, videos, graphics, and text — is the intellectual property of "}<span className="text-brand font-semibold">learnbridge</span>{" or its instructors. You may not reproduce, distribute, or create derivative works from any content without explicit written permission."}</>,
     },
     {
       title: "5. Payments & Refunds",
-      content: <>{"Course purchases are subject to our refund policy. Refund requests must be submitted within 7 days of purchase, provided you have not completed more than 20% of the course. "}<span className="text-brand font-semibold">Scholarly</span>{" reserves the right to deny refund requests that do not meet these criteria."}</>,
+      content: <>{"Course purchases are subject to our refund policy. Refund requests must be submitted within 7 days of purchase, provided you have not completed more than 20% of the course. "}<span className="text-brand font-semibold">learnbridge</span>{" reserves the right to deny refund requests that do not meet these criteria."}</>,
     },
     {
       title: "6. Termination",
-      content: <><span className="text-brand font-semibold">Scholarly</span>{" reserves the right to suspend or terminate your account at any time if you violate these terms. Upon termination, your access to purchased courses may be revoked. You may also terminate your account at any time by contacting our support team."}</>,
+      content: <><span className="text-brand font-semibold">learnbridge</span>{" reserves the right to suspend or terminate your account at any time if you violate these terms. Upon termination, your access to purchased courses may be revoked. You may also terminate your account at any time by contacting our support team."}</>,
     },
     {
       title: "7. Limitation of Liability",
-      content: <><span className="text-brand font-semibold">Scholarly</span>{" is not liable for any indirect, incidental, or consequential damages arising from your use of the platform. Our total liability to you shall not exceed the amount you paid to "}<span className="text-brand font-semibold">Scholarly</span>{" in the 12 months preceding the claim."}</>,
+      content: <><span className="text-brand font-semibold">learnbridge</span>{" is not liable for any indirect, incidental, or consequential damages arising from your use of the platform. Our total liability to you shall not exceed the amount you paid to "}<span className="text-brand font-semibold">learnbridge</span>{" in the 12 months preceding the claim."}</>,
     },
     {
       title: "8. Changes to Terms",
-      content: <>{"We may update these Terms of Service from time to time. We will notify you of significant changes via email or a prominent notice on the platform. Continued use of "}<span className="text-brand font-semibold">Scholarly</span>{" after changes constitutes acceptance of the new terms."}</>,
+      content: <>{"We may update these Terms of Service from time to time. We will notify you of significant changes via email or a prominent notice on the platform. Continued use of "}<span className="text-brand font-semibold">learnbridge</span>{" after changes constitutes acceptance of the new terms."}</>,
     },
   ];
 
@@ -84,7 +84,7 @@ export default function TermsServicePage() {
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-accent-50 flex items-center justify-center text-accent shrink-0">
               <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
             </div>
-            <span>Scholarly Atelier · All Rights Reserved</span>
+            <span>learnbridge Atelier · All Rights Reserved</span>
           </div>
         </div>
 

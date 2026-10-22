@@ -15,9 +15,9 @@ export default function ContactSupportPage() {
 
   const faqs = [
     { q: "How do I get a refund?", a: "Refund requests must be submitted within 7 days of purchase, provided you have not completed more than 20% of the course. Contact us with your order ID." },
-    { q: "Can I access courses offline?", a: <>{"Currently, "}<span className="text-brand">Scholarly</span>{" does not support offline access. All course content is streamed online. We are working on an offline mode for mobile."}</> },
+    { q: "Can I access courses offline?", a: <>{"Currently, "}<span className="text-brand">learnbridge</span>{" does not support offline access. All course content is streamed online. We are working on an offline mode for mobile."}</> },
     { q: "How do I become an instructor?", a: "Visit the Instructors page and click 'Apply to Teach'. Our team reviews applications within 5–7 business days." },
-    { q: "Is my payment information secure?", a: <>{"Yes. All payments are processed through PCI-DSS compliant payment gateways. "}<span className="text-brand">Scholarly</span>{" does not store your card details."}</> },
+    { q: "Is my payment information secure?", a: <>{"Yes. All payments are processed through PCI-DSS compliant payment gateways. "}<span className="text-brand">learnbridge</span>{" does not store your card details."}</> },
   ];
 
   const channels = [
@@ -57,7 +57,7 @@ export default function ContactSupportPage() {
               How can we help?
             </h1>
             <p className="text-white/80 text-sm sm:text-base md:text-lg">
-              Our team is here to make your <span className="text-white font-semibold">Scholarly</span> experience exceptional.
+              Our team is here to make your <span className="text-white font-semibold">learnbridge</span> experience exceptional.
             </p>
           </div>
         </div>

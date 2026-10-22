@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
             <section className="mb-8 sm:mb-12">
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 sm:mb-6">1. Introduction</h2>
               <p className="text-slate-600 mb-4 leading-relaxed text-sm sm:text-base md:text-lg">
-                Welcome to <span className="text-brand font-semibold">Scholarly</span>. We respect your privacy and are committed to protecting your personal data. 
+                Welcome to <span className="text-brand font-semibold">learnbridge</span>. We respect your privacy and are committed to protecting your personal data. 
                 This privacy policy will inform you as to how we look after your personal data when you visit our 
                 website and tell you about your privacy rights and how the law protects you.
               </p>

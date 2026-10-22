@@ -51,7 +51,7 @@ export default function Admin() {
           <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center shadow-md">
             <img src={LOGO_IMAGE} alt="" className="w-8 h-8 object-contain" />
           </div>
-          <span className="font-bold text-lg tracking-wide text-white">Scholarly <span className="text-xs text-accent-300 font-normal">Admin</span></span>
+          <span className="font-bold text-lg tracking-wide text-white">learnbridge <span className="text-xs text-accent-300 font-normal">Admin</span></span>
         </Link>
         <button
           type="button"
@@ -95,7 +95,7 @@ export default function Admin() {
           <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center shadow-md shadow-accent/40 group-hover:scale-105 transition-transform">
             <img src={LOGO_IMAGE} alt="" className="w-8 h-8 object-contain" />
           </div>
-          <span className="text-white font-bold text-xl tracking-wide"><span>Scholarly</span></span>
+          <span className="text-white font-bold text-xl tracking-wide"><span>learnbridge</span></span>
         </Link>
 
         <div className="py-6 flex flex-col flex-1 overflow-hidden">
