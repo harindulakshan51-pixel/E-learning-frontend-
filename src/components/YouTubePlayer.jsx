@@ -71,17 +71,21 @@ export default function YouTubePlayer({ video, resume = 0, onProgress }) {
         island.append(element);
         player = new Plyr(element, {
           title: video.title, iconUrl: icons, autoplay: false, playsinline: true,
-          controls: ['play', 'rewind', 'fast-forward', 'progress', 'current-time', 'duration', 'mute', 'volume', 'captions', 'settings', 'fullscreen'],
+          controls: ['play-large', 'play', 'rewind', 'fast-forward', 'progress', 'current-time', 'duration', 'mute', 'volume', 'captions', 'settings', 'fullscreen'],
           settings: ['captions', 'speed'], seekTime: 10, invertTime: true, toggleInvert: false,
-          hideControls: false, clickToPlay: false, keyboard: { focused: true, global: false },
-          captions: { active: true, language: 'auto', update: true },
+          hideControls: false, clickToPlay: true, keyboard: { focused: true, global: false },
+          captions: { active: false, language: 'auto', update: false },
           speed: { selected: 1, options: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] },
-          youtube: { noCookie: true, controls: 0, cc_load_policy: 1, rel: 0, origin: window.location.origin, start: Math.floor(initialPosition.current || 0) },
+          youtube: { noCookie: true, controls: 0, cc_load_policy: 0, iv_load_policy: 3, rel: 0, origin: window.location.origin, start: Math.floor(initialPosition.current || 0) },
         });
         const on = (event, fn) => { player.on(event, fn); listeners.push([event, fn]); };
         readyTimer = setTimeout(() => stop('YouTube did not respond. Check your connection or embedding settings and retry.'), 20000);
         on('ready', () => {
           if (disposed || denied) return;
+          try {
+            if (player?.embed?.unloadModule) player.embed.unloadModule('captions');
+            if (player?.embed?.setOption) player.embed.setOption('captions', 'track', {});
+          } catch (_) {}
           ready = true; clearTimeout(readyTimer); setStatus('Ready. Press play to start.');
           saveTimer = setInterval(() => { if (player?.playing) save(); }, 15000);
         });

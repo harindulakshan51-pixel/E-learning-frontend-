@@ -1,15 +1,121 @@
-.scholarly-player { --plyr-color-main: var(--color-accent); --plyr-video-control-background-hover: var(--color-accent); }
+/* Video Player Styling */
+.scholarly-player {
+  --plyr-color-main: var(--color-accent);
+  --plyr-video-control-background-hover: var(--color-accent);
+  width: 100%;
+}
+
+/* Ensure the plyr container stretches to the full width of its parent */
+.scholarly-player .plyr {
+  width: 100% !important;
+  max-width: 100% !important;
+  align-items: stretch !important;
+}
+
 /* Block clicks on the YouTube frame so native controls can't be used */
 .scholarly-player .plyr__video-embed iframe { pointer-events: none !important; }
 .scholarly-player .plyr__poster { display: none; }
-.scholarly-player .plyr--video .plyr__controls { position: relative; background: #111827; padding: 12px; flex-wrap: wrap; opacity: 1; transform: none; }
-.scholarly-player .plyr__video-wrapper { min-height: 200px; }
+
+/* Control bar spans 100% full width of the video player container */
+.scholarly-player .plyr--video .plyr__controls {
+  position: relative;
+  width: 100% !important;
+  max-width: 100% !important;
+  align-self: stretch !important;
+  box-sizing: border-box !important;
+  background: #111827;
+  padding: 10px 16px;
+  display: flex !important;
+  flex-wrap: nowrap;
+  align-items: center;
+  opacity: 1;
+  transform: none;
+  order: 2;
+  flex-shrink: 0;
+}
+
+/* Internal timeline / progress bar stretches to fill all available space */
+.scholarly-player .plyr__controls .plyr__progress__container {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+}
+
+.scholarly-player .plyr__video-wrapper { min-height: 200px; width: 100%; }
 .scholarly-player .plyr__control:focus-visible { outline: 2px solid var(--color-accent-300); outline-offset: 2px; }
+
 @media (max-width: 600px) {
-  .scholarly-player .plyr__controls .plyr__progress__container { min-width: 100%; order: -1; }
+  .scholarly-player .plyr--video .plyr__controls {
+    flex-wrap: wrap !important;
+    padding: 8px 12px;
+  }
+  .scholarly-player .plyr__controls .plyr__progress__container {
+    min-width: 100% !important;
+    order: -1;
+    margin-bottom: 6px;
+  }
   .scholarly-player .plyr__volume { max-width: 90px; min-width: 65px; }
   .scholarly-player .plyr__time { display: block; }
 }
 
-.scholarly-player .plyr__controls { order: 2; flex-shrink: 0; }
 .scholarly-player .plyr__time + .plyr__time { display: block; }
+
+/* Center Play/Pause button */
+.scholarly-player .plyr__control--overlaid {
+  position: absolute;
+  top: calc(50% - 24px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #6366f1 !important;
+  color: #ffffff !important;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, opacity 0.25s ease, background 0.2s ease;
+  z-index: 2;
+  cursor: pointer;
+  border: none;
+}
+
+.scholarly-player .plyr__control--overlaid:hover {
+  background: #4f46e5 !important;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.scholarly-player .plyr__control--overlaid svg {
+  width: 26px;
+  height: 26px;
+  position: relative;
+  left: 2px;
+  fill: #ffffff;
+}
+
+/* Hide when playing, reveal pause on hover */
+.scholarly-player .plyr--playing .plyr__control--overlaid {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.scholarly-player .plyr--playing:hover .plyr__control--overlaid {
+  opacity: 0.95;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Pause icon lines when playing */
+.scholarly-player .plyr--playing .plyr__control--overlaid svg {
+  display: none;
+}
+
+.scholarly-player .plyr--playing .plyr__control--overlaid::after {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 20px;
+  border-left: 5px solid #ffffff;
+  border-right: 5px solid #ffffff;
+}
